@@ -1,0 +1,2038 @@
+<!DOCTYPE html>
+<html lang="sw">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>🏠 Mabati Zone Tanzania - Ubora wa kuaminika zaidi</title>
+
+    <!-- Bootstrap 5 + Icons -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" />
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css" />
+
+    <!-- Google Font -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,400;14..32,500;14..32,600;14..32,700;14..32,800&display=swap" rel="stylesheet" />
+
+    <style>
+        :root {
+            --primary: #1a7fc1;
+            --primary-dark: #12649b;
+            --primary-light: #e6f3fb;
+            --accent: #38bdf8;
+            --brand-navy: #1e40af;
+            --sidebar-width: 260px;
+            --header-height: 64px;
+            --radius: 12px;
+            --shadow: 0 2px 12px rgba(0,0,0,0.06);
+        }
+        * { box-sizing: border-box; margin: 0; padding: 0; }
+        body {
+            font-family: 'Inter', -apple-system, sans-serif;
+            background: #f4f7fa;
+            color: #1e293b;
+            overflow-x: hidden;
+        }
+        ::-webkit-scrollbar { width: 5px; }
+        ::-webkit-scrollbar-track { background: #f1f1f1; }
+        ::-webkit-scrollbar-thumb { background: var(--primary); border-radius: 10px; }
+
+        /* ============ LOGO ============ */
+        .logo-mark { width: 170px; height: 100px; display: block; margin: 0 auto; }
+        .brand-logo { width: 40px; height: 30px; flex-shrink: 0; }
+        .banner-logo { width: 300px; height: 170px; }
+
+        /* ============ LOGIN ============ */
+        .login-wrapper {
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background: linear-gradient(135deg, #eef7fd 0%, #d8ecfa 100%);
+            padding: 20px;
+        }
+        .login-card {
+            background: #fff;
+            border-radius: 24px;
+            padding: 36px 32px;
+            max-width: 440px;
+            width: 100%;
+            box-shadow: 0 20px 60px rgba(26,127,193,0.15);
+            transition: transform 0.3s ease;
+        }
+        .login-card:hover { transform: translateY(-4px); }
+        .login-card .logo { text-align: center; margin-bottom: 22px; }
+        .login-card .logo h4 { margin-top: 8px; font-weight: 800; color: #0f172a; letter-spacing: -0.5px; }
+        .login-card .logo small { color: #64748b; font-size: 13px; font-style: italic; }
+        .login-card .form-control {
+            border-radius: 10px;
+            padding: 12px 16px;
+            border: 1.5px solid #e2e8f0;
+            font-size: 14px;
+        }
+        .login-card .form-control:focus {
+            border-color: var(--primary);
+            box-shadow: 0 0 0 4px rgba(26,127,193,0.12);
+        }
+        .login-card .btn-primary {
+            background: var(--primary);
+            border: none;
+            border-radius: 10px;
+            padding: 12px;
+            font-weight: 600;
+            font-size: 15px;
+            transition: 0.2s;
+            width: 100%;
+        }
+        .login-card .btn-primary:hover {
+            background: var(--primary-dark);
+            transform: translateY(-2px);
+            box-shadow: 0 8px 24px rgba(26,127,193,0.3);
+        }
+        .login-card .role-toggle .btn {
+            border-radius: 10px;
+            padding: 8px 14px;
+            font-size: 13px;
+            font-weight: 500;
+            border: 1.5px solid #e2e8f0;
+            transition: 0.2s;
+        }
+        .login-card .role-toggle .btn.active {
+            background: var(--primary);
+            color: #fff;
+            border-color: var(--primary);
+        }
+        .login-card .buyer-hint {
+            font-size: 13px;
+            color: #64748b;
+            text-align: center;
+            margin-bottom: 0;
+            padding: 6px 12px;
+            background: #f1f5f9;
+            border-radius: 8px;
+        }
+
+        /* ============ SIDEBAR ============ */
+        .sidebar {
+            position: fixed;
+            top: 0;
+            left: 0;
+            bottom: 0;
+            width: var(--sidebar-width);
+            background: #0b1f33;
+            color: #e2e8f0;
+            padding: 0;
+            overflow-y: auto;
+            z-index: 1050;
+            transition: transform 0.3s ease;
+            display: flex;
+            flex-direction: column;
+        }
+        .sidebar .brand {
+            padding: 18px 20px;
+            border-bottom: 1px solid rgba(255,255,255,0.06);
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+        .sidebar .brand span { font-weight: 700; font-size: 16px; color: #fff; display: block; line-height: 1.1; }
+        .sidebar .brand small { display: block; font-size: 10.5px; color: #7dd3fc; font-style: italic; }
+        .sidebar .nav {
+            flex: 1;
+            padding: 16px 12px;
+            flex-direction: column;
+            gap: 2px;
+        }
+        .sidebar .nav .nav-label {
+            font-size: 11px;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+            color: #64748b;
+            padding: 12px 12px 6px;
+            font-weight: 600;
+        }
+        .sidebar .nav .nav-link {
+            color: #cbd5e1;
+            padding: 10px 14px;
+            border-radius: 10px;
+            font-size: 14px;
+            font-weight: 500;
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            transition: 0.2s;
+            cursor: pointer;
+        }
+        .sidebar .nav .nav-link i { font-size: 20px; width: 24px; text-align: center; color: #64748b; }
+        .sidebar .nav .nav-link:hover { background: rgba(255,255,255,0.06); color: #fff; }
+        .sidebar .nav .nav-link:hover i { color: var(--accent); }
+        .sidebar .nav .nav-link.active { background: rgba(56,189,248,0.15); color: #7dd3fc; }
+        .sidebar .nav .nav-link.active i { color: #7dd3fc; }
+        .sidebar .footer {
+            padding: 16px 20px;
+            border-top: 1px solid rgba(255,255,255,0.06);
+            font-size: 12px;
+            color: #64748b;
+            text-align: center;
+        }
+
+        /* ============ MAIN ============ */
+        .main-content {
+            margin-left: var(--sidebar-width);
+            min-height: 100vh;
+            transition: margin-left 0.3s ease;
+        }
+        .header {
+            height: var(--header-height);
+            padding: 0 32px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            position: sticky;
+            top: 0;
+            z-index: 1040;
+            background: rgba(255,255,255,0.92);
+            backdrop-filter: blur(8px);
+            border-bottom: 1px solid #e2e8f0;
+        }
+        .header .toggle-sidebar {
+            background: none;
+            border: none;
+            font-size: 24px;
+            color: #475569;
+            display: none;
+            cursor: pointer;
+        }
+        .header .page-title { font-weight: 600; font-size: 18px; color: #0f172a; }
+        .header .user-info { display: flex; align-items: center; gap: 16px; }
+        .header .user-info .avatar {
+            width: 38px; height: 38px;
+            border-radius: 50%;
+            background: var(--primary-light);
+            color: var(--primary);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: 700;
+            font-size: 16px;
+        }
+        .change-pwd-btn {
+            background: none;
+            border: 1px solid #e2e8f0;
+            border-radius: 8px;
+            padding: 6px 14px;
+            font-size: 13px;
+            color: #475569;
+            transition: 0.2s;
+            cursor: pointer;
+        }
+        .change-pwd-btn:hover {
+            background: var(--primary-light);
+            border-color: var(--primary);
+            color: var(--primary);
+        }
+        .content { padding: 28px 32px; }
+
+        /* ============ BANNER ============ */
+        .dashboard-banner {
+            background: #fff;
+            border-radius: var(--radius);
+            box-shadow: var(--shadow);
+            border: 1px solid #f1f5f9;
+            overflow: hidden;
+            transition: 0.25s ease;
+        }
+        .dashboard-banner:hover { transform: translateY(-4px); box-shadow: 0 8px 24px rgba(0,0,0,0.08); }
+        .dashboard-banner .banner-image {
+            width: 100%;
+            height: 280px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background: linear-gradient(135deg, #f0f9ff, #dbeafe);
+            position: relative;
+            overflow: hidden;
+        }
+        .dashboard-banner .banner-image img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        /* ============ TABLES ============ */
+        .table-wrap {
+            background: #fff;
+            border-radius: var(--radius);
+            padding: 20px 0;
+            box-shadow: var(--shadow);
+            border: 1px solid #f1f5f9;
+            overflow-x: auto;
+        }
+        .table-wrap .table-header {
+            padding: 0 24px 16px;
+            display: flex;
+            flex-wrap: wrap;
+            align-items: center;
+            justify-content: space-between;
+            gap: 12px;
+            border-bottom: 1px solid #f1f5f9;
+        }
+        .table-wrap .table-header h6 { font-weight: 600; margin: 0; }
+        .table-wrap table { margin-bottom: 0; font-size: 14px; }
+        .table-wrap table th {
+            font-weight: 600;
+            color: #475569;
+            border-bottom: 1px solid #e2e8f0;
+            padding: 12px 16px;
+            background: #f8fafc;
+            white-space: nowrap;
+        }
+        .table-wrap table td {
+            padding: 12px 16px;
+            vertical-align: middle;
+            border-bottom: 1px solid #f1f5f9;
+        }
+        .table-wrap table tr:last-child td { border-bottom: none; }
+
+        /* ============ PRODUCT CARD ============ */
+        .car-card {
+            background: #fff;
+            border-radius: var(--radius);
+            overflow: hidden;
+            box-shadow: var(--shadow);
+            border: 1px solid #f1f5f9;
+            transition: 0.25s ease;
+            height: 100%;
+        }
+        .car-card:hover { transform: translateY(-4px); box-shadow: 0 8px 24px rgba(0,0,0,0.08); }
+        .car-card .car-img {
+            height: 200px;
+            background: #e5e7eb;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 48px;
+            color: #9ca3af;
+            position: relative;
+            overflow: hidden;
+        }
+        .car-card .car-img img { width: 100%; height: 100%; object-fit: cover; }
+        .car-card .car-img .featured-badge {
+            position: absolute; top: 12px; left: 12px;
+            background: #f59e0b; color: #fff;
+            padding: 4px 12px; border-radius: 20px;
+            font-size: 12px; font-weight: 600; z-index: 2;
+        }
+        .car-card .car-img .sold-badge {
+            position: absolute; top: 12px; right: 12px;
+            background: #ef4444; color: #fff;
+            padding: 4px 12px; border-radius: 20px;
+            font-size: 12px; font-weight: 600; z-index: 2;
+        }
+        .car-card .car-img .multi-badge {
+            position: absolute; bottom: 12px; right: 12px;
+            background: rgba(0,0,0,0.6); color: #fff;
+            padding: 4px 10px; border-radius: 20px;
+            font-size: 12px; z-index: 2;
+        }
+        .car-card .car-body { padding: 16px 20px; }
+        .car-card .car-body .car-title { font-weight: 700; font-size: 17px; margin-bottom: 4px; }
+        .car-card .car-body .car-price { font-weight: 800; font-size: 20px; color: var(--primary); }
+        .car-card .car-body .car-price small { font-weight: 500; font-size: 12px; color: #64748b; }
+        .car-card .car-body .car-details { font-size: 13px; color: #64748b; }
+        .car-card .car-body .car-actions { margin-top: 12px; display: flex; gap: 8px; flex-wrap: wrap; }
+
+        /* ============ MODALS ============ */
+        .modal-content { border-radius: 16px; border: none; box-shadow: 0 24px 64px rgba(0,0,0,0.12); }
+        .modal-header { border-bottom: 1px solid #f1f5f9; padding: 20px 24px; }
+        .modal-body { padding: 24px; }
+        .modal-footer { border-top: 1px solid #f1f5f9; padding: 16px 24px; }
+        .modal .form-control, .modal .form-select {
+            border-radius: 10px;
+            border: 1.5px solid #e2e8f0;
+            padding: 10px 14px;
+            font-size: 14px;
+        }
+        .modal .form-control:focus, .modal .form-select:focus {
+            border-color: var(--primary);
+            box-shadow: 0 0 0 4px rgba(26,127,193,0.1);
+        }
+
+        .sidebar-overlay {
+            display: none;
+            position: fixed;
+            inset: 0;
+            background: rgba(0,0,0,0.4);
+            z-index: 1045;
+        }
+        .sidebar-overlay.active { display: block; }
+        .page-section { display: none; animation: fadeIn 0.3s ease; }
+        .page-section.active { display: block; }
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(12px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        .bg-soft-primary { background: var(--primary-light); }
+        .text-primary-custom { color: var(--primary); }
+
+        .whatsapp-btn {
+            background: #25D366;
+            color: #fff;
+            border: none;
+            border-radius: 8px;
+            padding: 6px 14px;
+            font-size: 13px;
+            transition: 0.2s;
+        }
+        .whatsapp-btn:hover { background: #1da851; color: #fff; }
+
+        .image-preview-thumb {
+            width: 80px; height: 80px;
+            object-fit: cover;
+            border-radius: 8px;
+            border: 1px solid #e2e8f0;
+            margin: 4px;
+        }
+        .image-preview-container { display: flex; flex-wrap: wrap; gap: 6px; margin-top: 8px; }
+        .preview-item { position: relative; display: inline-block; }
+        .preview-item .remove-btn {
+            position: absolute; top: -6px; right: -6px;
+            background: #ef4444; color: #fff;
+            border: none; border-radius: 50%;
+            width: 20px; height: 20px;
+            font-size: 12px; line-height: 20px;
+            text-align: center; cursor: pointer; padding: 0;
+        }
+
+        .carousel-indicators { position: relative; margin-top: 12px; gap: 6px; }
+        .carousel-indicators button {
+            width: 10px; height: 10px; border-radius: 50%;
+            border: 1px solid #ccc; background: transparent;
+        }
+        .carousel-indicators button.active { background: var(--primary); border-color: var(--primary); }
+
+        .stat-mini {
+            background: #fff;
+            padding: 16px 12px;
+            border-radius: var(--radius);
+            box-shadow: var(--shadow);
+            border: 1px solid #f1f5f9;
+            text-align: center;
+            transition: 0.2s;
+        }
+        .stat-mini:hover { transform: translateY(-2px); box-shadow: 0 4px 16px rgba(0,0,0,0.06); }
+        .stat-mini .stat-number { font-size: 22px; font-weight: 700; color: #0f172a; }
+        .stat-mini .stat-label { font-size: 13px; color: #64748b; font-weight: 500; }
+        .stat-mini .stat-icon { font-size: 24px; margin-bottom: 4px; }
+
+        .calc-box {
+            background: #fff;
+            border-radius: var(--radius);
+            box-shadow: var(--shadow);
+            border: 1px solid #f1f5f9;
+            padding: 24px;
+        }
+        .calc-result {
+            background: var(--primary-light);
+            border: 1px dashed var(--primary);
+            border-radius: var(--radius);
+            padding: 20px;
+        }
+        .calc-result .big { font-size: 30px; font-weight: 800; color: var(--primary-dark); }
+
+        @media (max-width: 992px) {
+            .sidebar { transform: translateX(-100%); }
+            .sidebar.open { transform: translateX(0); }
+            .main-content { margin-left: 0; }
+            .header .toggle-sidebar { display: block; }
+            .content { padding: 20px 16px; }
+            .header { padding: 0 16px; }
+            .dashboard-banner .banner-image { height: 190px; }
+            .banner-logo { width: 200px; height: 115px; }
+        }
+        @media (max-width: 576px) {
+            .login-card { padding: 26px 20px; }
+            .header .page-title { font-size: 15px; }
+            .image-preview-thumb { width: 60px; height: 60px; }
+            .dashboard-banner .banner-image { height: 150px; }
+            .banner-logo { width: 160px; height: 95px; }
+            .stat-mini .stat-number { font-size: 18px; }
+            .logo-mark { width: 140px; height: 82px; }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- ══════════════ SVG LOGO (inayofanana na nembo yako) ══════════════ -->
+    <svg width="0" height="0" style="position:absolute">
+        <symbol id="mabatiLogo" viewBox="0 0 260 140">
+            <defs>
+                <linearGradient id="roofGrad" x1="0" y1="0" x2="1" y2="1">
+                    <stop offset="0%" stop-color="#7dd3fc"/>
+                    <stop offset="55%" stop-color="#2b9fd8"/>
+                    <stop offset="100%" stop-color="#0b6ea8"/>
+                </linearGradient>
+                <linearGradient id="roofGrad2" x1="0" y1="0" x2="0" y2="1">
+                    <stop offset="0%" stop-color="#67c9f0"/>
+                    <stop offset="100%" stop-color="#2790c9"/>
+                </linearGradient>
+            </defs>
+
+            <!-- Nyumba ya kulia (nyuma) -->
+            <polygon points="168,96 206,58 244,96" fill="url(#roofGrad2)"/>
+            <rect x="214" y="46" width="11" height="16" fill="url(#roofGrad2)"/>
+            <path d="M196 96 V80 a9 9 0 0 1 18 0 V96 Z" fill="#bfe6f7" opacity="0.85"/>
+
+            <!-- Nyumba ya kati -->
+            <polygon points="126,96 172,50 218,96" fill="url(#roofGrad)"/>
+            <path d="M158 96 V78 a10 10 0 0 1 20 0 V96 Z" fill="#d8f0fb" opacity="0.9"/>
+
+            <!-- Nyumba ya kushoto (kubwa) -->
+            <polygon points="72,96 118,48 164,96" fill="url(#roofGrad)"/>
+            <polygon points="18,96 78,34 140,96" fill="url(#roofGrad)"/>
+            <rect x="96" y="22" width="13" height="20" fill="url(#roofGrad)"/>
+            <path d="M52 96 V76 a11 11 0 0 1 22 0 V96 Z" fill="#e3f5fd" opacity="0.95"/>
+
+            <!-- Mstari wa chini -->
+            <rect x="14" y="96" width="232" height="5" rx="2.5" fill="#1e40af"/>
+
+            <!-- Matofali (bricks) kushoto -->
+            <g fill="#1e40af">
+                <rect x="14" y="112" width="16" height="8" rx="1"/>
+                <rect x="34" y="112" width="16" height="8" rx="1"/>
+                <rect x="24" y="124" width="16" height="8" rx="1"/>
+                <rect x="44" y="124" width="16" height="8" rx="1"/>
+            </g>
+            <!-- Matofali (bricks) kulia -->
+            <g fill="#1e40af">
+                <rect x="200" y="112" width="16" height="8" rx="1"/>
+                <rect x="220" y="112" width="16" height="8" rx="1"/>
+                <rect x="190" y="124" width="16" height="8" rx="1"/>
+                <rect x="210" y="124" width="16" height="8" rx="1"/>
+                <rect x="230" y="124" width="16" height="8" rx="1"/>
+            </g>
+        </symbol>
+    </svg>
+
+    <!-- ============ LOGIN ============ -->
+    <div id="loginPage" class="login-wrapper">
+        <div class="login-card">
+            <div class="logo">
+                <svg class="logo-mark"><use href="#mabatiLogo"/></svg>
+                <h4>MABATI ZONE</h4>
+                <small>“Ubora wa kuaminika zaidi”</small>
+            </div>
+
+            <form id="loginForm" onsubmit="return handleLogin(event)">
+                <div class="mb-3" id="loginFieldsWrapper">
+                    <label class="form-label fw-semibold" id="loginLabel">Barua pepe</label>
+                    <input type="text" class="form-control" id="loginUsername" placeholder="Weka barua pepe" required />
+                </div>
+                <div class="mb-3" id="passwordWrapper">
+                    <label class="form-label fw-semibold">Neno la Siri</label>
+                    <input type="password" class="form-control" id="loginPassword" placeholder="Weka neno siri" required />
+                </div>
+
+                <div class="mb-4 role-toggle d-flex gap-2 justify-content-center flex-wrap">
+                    <button type="button" class="btn active" data-role="admin" onclick="setRole('admin')">👨‍💼 Admin</button>
+                    <button type="button" class="btn" data-role="dealer" onclick="setRole('dealer')">🏢 Muuzaji</button>
+                    <button type="button" class="btn" data-role="buyer" onclick="setRole('buyer')">👤 Mteja</button>
+                </div>
+
+                <div id="buyerHint" class="buyer-hint mb-3" style="display:none;">
+                    <i class="bi bi-info-circle me-1"></i> Kama Mteja, hauitaji barua pepe wala neno la siri. Bonyeza tu "Ingia".
+                </div>
+
+                <button type="submit" class="btn btn-primary" id="loginBtn">🔐 Ingia</button>
+            </form>
+        </div>
+    </div>
+
+    <!-- ============ SIDEBAR OVERLAY ============ -->
+    <div id="sidebarOverlay" class="sidebar-overlay" onclick="toggleSidebar()"></div>
+
+    <!-- ============ SIDEBAR ============ -->
+    <aside class="sidebar" id="sidebar">
+        <div class="brand">
+            <svg class="brand-logo"><use href="#mabatiLogo"/></svg>
+            <div>
+                <span>Mabati Zone</span>
+                <small id="sidebarRoleLabel">TZ • Admin</small>
+            </div>
+        </div>
+
+        <nav class="nav">
+            <div class="nav-label">Biashara</div>
+            <a class="nav-link active" data-page="dashboard" onclick="navigate('dashboard')">
+                <i class="bi bi-grid-1x2-fill"></i> Dashibodi
+            </a>
+            <a class="nav-link" data-page="listings" onclick="navigate('listings')">
+                <i class="bi bi-list-ul"></i> Bidhaa Zote
+            </a>
+            <a class="nav-link" data-page="calculator" onclick="navigate('calculator')">
+                <i class="bi bi-calculator-fill"></i> Kikokotoo cha Mabati
+            </a>
+            <a class="nav-link" data-page="mycars" onclick="navigate('mycars')">
+                <i class="bi bi-box-seam-fill"></i> Bidhaa Zangu
+            </a>
+            <a class="nav-link" data-page="addcar" onclick="navigate('addcar')">
+                <i class="bi bi-plus-circle"></i> Ongeza Bidhaa
+            </a>
+
+            <div class="nav-label mt-3">Admin</div>
+            <a class="nav-link" data-page="admin" onclick="navigate('admin')">
+                <i class="bi bi-shield-lock-fill"></i> Admin Panel
+            </a>
+        </nav>
+
+        <div class="footer">
+            <button class="btn btn-sm btn-outline-danger w-100" onclick="handleLogout()">
+                <i class="bi bi-box-arrow-right me-1"></i> Toka
+            </button>
+            <div class="mt-2">&copy; 2026 Mabati Zone TZ</div>
+        </div>
+    </aside>
+
+    <!-- ============ MAIN CONTENT ============ -->
+    <div class="main-content" id="mainContent">
+
+        <!-- HEADER -->
+        <header class="header" id="appHeader">
+            <div class="d-flex align-items-center gap-3">
+                <button class="toggle-sidebar" onclick="toggleSidebar()">
+                    <i class="bi bi-list"></i>
+                </button>
+                <span class="page-title" id="pageTitle">Dashibodi</span>
+            </div>
+            <div class="user-info">
+                <span class="d-none d-sm-inline text-muted small" id="userRoleBadge">Admin</span>
+                <button class="change-pwd-btn" onclick="openChangePasswordModal()">
+                    <i class="bi bi-key"></i> Badilisha Neno
+                </button>
+                <div class="avatar" id="userAvatar">A</div>
+            </div>
+        </header>
+
+        <!-- CONTENT -->
+        <div class="content">
+
+            <!-- ========== DASHBOARD ========== -->
+            <section id="page-dashboard" class="page-section active">
+                <div class="mb-4">
+                    <h5 class="fw-bold">Karibu tena, <span id="dashboardUserName">Admin</span> 👋</h5>
+                    <p class="text-muted small">Karibu Mabati Zone Tanzania — “Ubora wa kuaminika zaidi”.</p>
+                </div>
+
+                <!-- Banner -->
+                <div class="dashboard-banner">
+                    <div class="banner-image">
+                        <!-- Badilisha na picha yako: <img src="mabati-banner.jpg" alt="Mabati Zone" /> -->
+                        <svg class="banner-logo"><use href="#mabatiLogo"/></svg>
+                    </div>
+                </div>
+
+                <!-- Quick stats -->
+                <div class="row g-3 mt-4">
+                    <div class="col-6 col-md-3" id="stat-col-cars">
+                        <div class="stat-mini">
+                            <div class="stat-icon text-primary"><i class="bi bi-box-seam-fill"></i></div>
+                            <div class="stat-number" id="statCars">0</div>
+                            <div class="stat-label">Bidhaa</div>
+                        </div>
+                    </div>
+                    <div class="col-6 col-md-3" id="stat-col-users">
+                        <div class="stat-mini">
+                            <div class="stat-icon text-success"><i class="bi bi-people-fill"></i></div>
+                            <div class="stat-number" id="statUsers">0</div>
+                            <div class="stat-label">Watumiaji</div>
+                        </div>
+                    </div>
+                    <div class="col-6 col-md-3" id="stat-col-featured">
+                        <div class="stat-mini">
+                            <div class="stat-icon text-warning"><i class="bi bi-star-fill"></i></div>
+                            <div class="stat-number" id="statFeatured">0</div>
+                            <div class="stat-label">Featured</div>
+                        </div>
+                    </div>
+                    <div class="col-6 col-md-3" id="stat-col-value">
+                        <div class="stat-mini">
+                            <div class="stat-icon text-danger"><i class="bi bi-coin-fill"></i></div>
+                            <div class="stat-number" id="statValue">TSh 0</div>
+                            <div class="stat-label">Thamani Jumla</div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Aina za mabati -->
+                <div class="row g-3 mt-2">
+                    <div class="col-12">
+                        <div class="calc-box">
+                            <h6 class="fw-bold mb-3"><i class="bi bi-grid-3x3-gap-fill me-2 text-primary-custom"></i>Aina za Mabati Tunazouza</h6>
+                            <div class="d-flex flex-wrap gap-2">
+                                <span class="badge bg-soft-primary text-primary-custom p-2">Mabati Gofu</span>
+                                <span class="badge bg-soft-primary text-primary-custom p-2">Mabati Mikate</span>
+                                <span class="badge bg-soft-primary text-primary-custom p-2">Mabati Roman</span>
+                                <span class="badge bg-soft-primary text-primary-custom p-2">Mabati Zeta</span>
+                                <span class="badge bg-soft-primary text-primary-custom p-2">Mabati Trapezoidal</span>
+                                <span class="badge bg-soft-primary text-primary-custom p-2">Mabati Super Eco</span>
+                                <span class="badge bg-soft-primary text-primary-custom p-2">Misumari</span>
+                                <span class="badge bg-soft-primary text-primary-custom p-2">Frames & Ufungo</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- ========== LISTINGS ========== -->
+            <section id="page-listings" class="page-section">
+                <div class="d-flex flex-wrap align-items-center justify-content-between mb-4">
+                    <h5 class="fw-bold mb-0"><i class="bi bi-list-ul me-2 text-primary-custom"></i>Bidhaa Zote</h5>
+                </div>
+
+                <div class="row g-3 mb-4">
+                    <div class="col-sm-6 col-lg-3">
+                        <input type="text" class="form-control" id="searchListings" placeholder="🔍 Tafuta mabati..." oninput="renderListings()" />
+                    </div>
+                    <div class="col-sm-6 col-lg-2">
+                        <select class="form-select" id="filterCategory" onchange="renderListings()">
+                            <option value="">Aina Zote</option>
+                            <option value="Mabati Gofu">Mabati Gofu</option>
+                            <option value="Mabati Mikate">Mabati Mikate</option>
+                            <option value="Mabati Roman">Mabati Roman</option>
+                            <option value="Mabati Zeta">Mabati Zeta</option>
+                            <option value="Mabati Trapezoidal">Mabati Trapezoidal</option>
+                            <option value="Mabati Super Eco">Mabati Super Eco</option>
+                            <option value="Misumari">Misumari</option>
+                            <option value="Frames & Ufungo">Frames & Ufungo</option>
+                            <option value="Nyingine">Nyingine</option>
+                        </select>
+                    </div>
+                    <div class="col-sm-6 col-lg-2">
+                        <select class="form-select" id="filterCompany" onchange="renderListings()">
+                            <option value="">Kampuni Zote</option>
+                            <option value="ALAF">ALAF</option>
+                            <option value="Maisha Mabati">Maisha Mabati</option>
+                            <option value="Tembo Steel">Tembo Steel</option>
+                            <option value="Simba Mabati">Simba Mabati</option>
+                            <option value="Tononoka">Tononoka</option>
+                            <option value="MM Integrated Steel">MM Integrated Steel</option>
+                            <option value="SABA Steel">SABA Steel</option>
+                            <option value="Nyingine">Nyingine</option>
+                        </select>
+                    </div>
+                    <div class="col-sm-6 col-lg-2">
+                        <select class="form-select" id="filterRegion" onchange="renderListings()">
+                            <option value="">Mikoa Yote</option>
+                            <option value="Dar es Salaam">Dar es Salaam</option>
+                            <option value="Arusha">Arusha</option>
+                            <option value="Mwanza">Mwanza</option>
+                            <option value="Dodoma">Dodoma</option>
+                            <option value="Mbeya">Mbeya</option>
+                            <option value="Tanga">Tanga</option>
+                            <option value="Morogoro">Morogoro</option>
+                            <option value="Kilimanjaro">Kilimanjaro</option>
+                        </select>
+                    </div>
+                    <div class="col-sm-12 col-lg-3">
+                        <button class="btn btn-primary w-100" onclick="renderListings()"><i class="bi bi-search"></i> Tafuta</button>
+                    </div>
+                </div>
+
+                <div id="listingsGrid" class="row g-4"></div>
+            </section>
+
+            <!-- ========== KIKOKOTOO ========== -->
+            <section id="page-calculator" class="page-section">
+                <h5 class="fw-bold mb-4"><i class="bi bi-calculator-fill me-2 text-primary-custom"></i>Kikokotoo cha Mabati</h5>
+
+                <div class="row g-4">
+                    <div class="col-lg-6">
+                        <div class="calc-box">
+                            <p class="text-muted small">Weka vipimo vya jengo lako upate makadirio ya idadi ya mabati na gharama.</p>
+                            <div class="row g-3">
+                                <div class="col-6">
+                                    <label class="form-label fw-semibold small">Urefu wa Jengo (m)</label>
+                                    <input type="number" class="form-control" id="calcLength" value="10" min="1" step="0.1" />
+                                </div>
+                                <div class="col-6">
+                                    <label class="form-label fw-semibold small">Upana wa Jengo (m)</label>
+                                    <input type="number" class="form-control" id="calcWidth" value="8" min="1" step="0.1" />
+                                </div>
+                                <div class="col-12">
+                                    <label class="form-label fw-semibold small">Aina ya Paa</label>
+                                    <select class="form-select" id="calcRoofType">
+                                        <option value="1.25">Paa la Gable (mteremko wa pande mbili)</option>
+                                        <option value="1.15">Paa la Lean-to (mteremko mmoja)</option>
+                                        <option value="1.08">Paa la Flat (gorofa)</option>
+                                    </select>
+                                </div>
+                                <div class="col-6">
+                                    <label class="form-label fw-semibold small">Upana wa Bati (m)</label>
+                                    <input type="number" class="form-control" id="calcSheetWidth" value="0.9" min="0.1" step="0.05" />
+                                </div>
+                                <div class="col-6">
+                                    <label class="form-label fw-semibold small">Urefu wa Bati (m)</label>
+                                    <input type="number" class="form-control" id="calcSheetLength" value="3" min="0.5" step="0.5" />
+                                </div>
+                                <div class="col-12">
+                                    <label class="form-label fw-semibold small">Bei kwa Bati (TSh) — si lazima</label>
+                                    <input type="number" class="form-control" id="calcPrice" value="38000" min="0" step="500" />
+                                </div>
+                            </div>
+                            <button class="btn btn-primary w-100 mt-4" onclick="calculateMabati()">
+                                <i class="bi bi-calculator me-1"></i> Kokotoa
+                            </button>
+                        </div>
+                    </div>
+
+                    <div class="col-lg-6">
+                        <div class="calc-result h-100 d-flex flex-column justify-content-center" id="calcResult">
+                            <div class="text-center text-muted">
+                                <i class="bi bi-house-gear" style="font-size:48px;"></i>
+                                <p class="mt-2 mb-0">Jaza vipimo na bonyeza <strong>“Kokotoa”</strong>.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- ========== MY PRODUCTS ========== -->
+            <section id="page-mycars" class="page-section">
+                <div class="d-flex flex-wrap align-items-center justify-content-between mb-4">
+                    <h5 class="fw-bold mb-0"><i class="bi bi-box-seam-fill me-2 text-primary-custom"></i>Bidhaa Zangu</h5>
+                    <button class="btn btn-primary btn-sm" onclick="navigate('addcar')">
+                        <i class="bi bi-plus-lg me-1"></i> Ongeza Bidhaa
+                    </button>
+                </div>
+
+                <div id="myCarsGrid" class="row g-4"></div>
+            </section>
+
+            <!-- ========== ADD PRODUCT ========== -->
+            <section id="page-addcar" class="page-section">
+                <div class="bg-white rounded-2xl shadow-xl p-6" style="max-width:820px; margin:0 auto;">
+                    <h5 class="fw-bold mb-4"><i class="bi bi-plus-circle me-2 text-primary-custom"></i><span id="addCarTitle">Ongeza Bidhaa</span></h5>
+                    <form id="addProductForm" onsubmit="return handleAddProduct(event)">
+                        <input type="hidden" id="editProductId" />
+                        <div class="row g-3">
+                            <div class="col-md-8">
+                                <label class="form-label fw-semibold small">Jina la Bidhaa *</label>
+                                <input type="text" class="form-control" id="prodTitle" placeholder="Mabati Gofu 30 Gauge" required />
+                            </div>
+                            <div class="col-md-4">
+                                <label class="form-label fw-semibold small">Aina ya Bidhaa</label>
+                                <select class="form-select" id="prodCategory">
+                                    <option value="">-- Chagua --</option>
+                                    <option value="Mabati Gofu">Mabati Gofu</option>
+                                    <option value="Mabati Mikate">Mabati Mikate</option>
+                                    <option value="Mabati Roman">Mabati Roman</option>
+                                    <option value="Mabati Zeta">Mabati Zeta</option>
+                                    <option value="Mabati Trapezoidal">Mabati Trapezoidal</option>
+                                    <option value="Mabati Super Eco">Mabati Super Eco</option>
+                                    <option value="Misumari">Misumari</option>
+                                    <option value="Frames & Ufungo">Frames & Ufungo</option>
+                                    <option value="Nyingine">Nyingine</option>
+                                </select>
+                            </div>
+
+                            <div class="col-md-4">
+                                <label class="form-label fw-semibold small">Kampuni</label>
+                                <select class="form-select" id="prodCompany">
+                                    <option value="">-- Chagua --</option>
+                                    <option value="ALAF">ALAF</option>
+                                    <option value="Maisha Mabati">Maisha Mabati</option>
+                                    <option value="Tembo Steel">Tembo Steel</option>
+                                    <option value="Simba Mabati">Simba Mabati</option>
+                                    <option value="Tononoka">Tononoka</option>
+                                    <option value="MM Integrated Steel">MM Integrated Steel</option>
+                                    <option value="SABA Steel">SABA Steel</option>
+                                    <option value="Nyingine">Nyingine</option>
+                                </select>
+                            </div>
+                            <div class="col-md-4">
+                                <label class="form-label fw-semibold small">Gauge / Unene</label>
+                                <select class="form-select" id="prodGauge">
+                                    <option value="">-- Chagua --</option>
+                                    <option value="26">26 Gauge</option>
+                                    <option value="28">28 Gauge</option>
+                                    <option value="30">30 Gauge</option>
+                                    <option value="32">32 Gauge</option>
+                                    <option value="35">35 Gauge</option>
+                                    <option value="Nyingine">Nyingine</option>
+                                </select>
+                            </div>
+                            <div class="col-md-4">
+                                <label class="form-label fw-semibold small">Urefu (mita)</label>
+                                <input type="number" class="form-control" id="prodLength" placeholder="3" step="0.5" />
+                            </div>
+
+                            <div class="col-md-4">
+                                <label class="form-label fw-semibold small">Bei (TSh) *</label>
+                                <input type="number" class="form-control" id="prodPrice" placeholder="38000" required />
+                            </div>
+                            <div class="col-md-4">
+                                <label class="form-label fw-semibold small">Kipimo cha Bei</label>
+                                <select class="form-select" id="prodUnit">
+                                    <option value="kwa sheet">Kwa sheet</option>
+                                    <option value="kwa mita">Kwa mita</option>
+                                    <option value="kwa kilo">Kwa kilo</option>
+                                    <option value="kwa mita ya mraba">Kwa mita ya mraba</option>
+                                </select>
+                            </div>
+                            <div class="col-md-4">
+                                <label class="form-label fw-semibold small">Rangi</label>
+                                <input type="text" class="form-control" id="prodColor" placeholder="Nyekundu / Asili" />
+                            </div>
+
+                            <div class="col-md-4">
+                                <label class="form-label fw-semibold small">Hali</label>
+                                <select class="form-select" id="prodCondition">
+                                    <option value="mpya">Mpya</option>
+                                    <option value="iliyotumika">Iliyotumika</option>
+                                </select>
+                            </div>
+                            <div class="col-md-4">
+                                <label class="form-label fw-semibold small">Mkoa</label>
+                                <select class="form-select" id="prodRegion">
+                                    <option value="Dar es Salaam">Dar es Salaam</option>
+                                    <option value="Arusha">Arusha</option>
+                                    <option value="Mwanza">Mwanza</option>
+                                    <option value="Dodoma">Dodoma</option>
+                                    <option value="Mbeya">Mbeya</option>
+                                    <option value="Tanga">Tanga</option>
+                                    <option value="Morogoro">Morogoro</option>
+                                    <option value="Kilimanjaro">Kilimanjaro</option>
+                                </select>
+                            </div>
+
+                            <div class="col-12">
+                                <label class="form-label fw-semibold small">Maelezo</label>
+                                <textarea class="form-control" id="prodDescription" rows="3" placeholder="Maelezo ya bidhaa, ubora, warranty n.k."></textarea>
+                            </div>
+                            <div class="col-12">
+                                <label class="form-label fw-semibold small">Picha (max 5)</label>
+                                <input type="file" class="form-control" id="prodImageFile" accept="image/*" capture="environment" multiple />
+                                <small class="text-muted">Chagua picha 1 hadi 5 kutoka kwenye gallery au piga picha kwa kamera.</small>
+                                <div id="imagePreviewContainer" class="image-preview-container"></div>
+                            </div>
+                        </div>
+                        <div class="mt-4 d-flex gap-2">
+                            <button type="submit" class="btn btn-primary" id="addCarBtn">✅ Hifadhi</button>
+                            <button type="button" class="btn btn-secondary" onclick="navigate('listings')">Ghairi</button>
+                        </div>
+                    </form>
+                </div>
+            </section>
+
+            <!-- ========== ADMIN PANEL ========== -->
+            <section id="page-admin" class="page-section">
+                <h5 class="fw-bold mb-4"><i class="bi bi-shield-lock-fill me-2 text-primary-custom"></i>Admin Panel</h5>
+
+                <div class="row g-4">
+                    <div class="col-lg-6">
+                        <div class="table-wrap">
+                            <div class="table-header">
+                                <h6>👤 Watumiaji</h6>
+                            </div>
+                            <table class="table">
+                                <thead><tr><th>Jina</th><th>Barua pepe</th><th>Jukumu</th><th>Vitendo</th></tr></thead>
+                                <tbody id="adminUsersTable"></tbody>
+                            </table>
+                        </div>
+                    </div>
+                    <div class="col-lg-6">
+                        <div class="table-wrap">
+                            <div class="table-header">
+                                <h6>🏠 Bidhaa Zote</h6>
+                            </div>
+                            <table class="table">
+                                <thead><tr><th>Bidhaa</th><th>Bei</th><th>Muuzaji</th><th>Vitendo</th></tr></thead>
+                                <tbody id="adminListingsTable"></tbody>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="row g-4 mt-3">
+                    <div class="col-12">
+                        <div class="table-wrap">
+                            <div class="table-header">
+                                <h6>💰 Malipo ya Featured (M-Pesa Sandbox)</h6>
+                            </div>
+                            <div class="p-3">
+                                <p class="small text-muted">Kwa sasa ni mfano wa sandbox. Endapo unataka bidhaa iwe featured, bonyeza "Featured" kwenye orodha ya bidhaa zako.</p>
+                                <button class="btn btn-warning btn-sm" onclick="alert('Huu ni mfano wa M-Pesa sandbox. Katika mfumo halisi, ungeunganishwa na API ya M-Pesa.')">
+                                    <i class="bi bi-phone me-1"></i> Jaribu M-Pesa Sandbox
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+        </div><!-- /content -->
+    </div><!-- /main-content -->
+
+    <!-- ============ MODALS ============ -->
+
+    <!-- Change Password Modal -->
+    <div class="modal fade" id="changePasswordModal" tabindex="-1">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h6 class="modal-title fw-bold"><i class="bi bi-key-fill me-2"></i>Badilisha Neno la Siri</h6>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+                </div>
+                <div class="modal-body">
+                    <form id="changePwdForm">
+                        <div class="mb-3">
+                            <label class="form-label fw-semibold small">Jina la Mtumiaji (mpya)</label>
+                            <input type="text" class="form-control" id="newUsername" required />
+                        </div>
+                        <div class="mb-3">
+                            <label class="form-label fw-semibold small">Jina Kamili (mpya)</label>
+                            <input type="text" class="form-control" id="newFullName" required />
+                        </div>
+                        <div class="mb-3">
+                            <label class="form-label fw-semibold small">Neno la Siri (mpya)</label>
+                            <input type="password" class="form-control" id="newPassword" required />
+                        </div>
+                        <div class="mb-3">
+                            <label class="form-label fw-semibold small">Neno la Siri (la sasa)</label>
+                            <input type="password" class="form-control" id="currentPassword" required />
+                            <small class="text-muted">Inahitajika kwa uthibitishaji.</small>
+                        </div>
+                    </form>
+                </div>
+                <div class="modal-footer">
+                    <button class="btn btn-secondary btn-sm" data-bs-dismiss="modal">Ghairi</button>
+                    <button class="btn btn-primary btn-sm" onclick="savePasswordChange()">Hifadhi</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Product Detail Modal (Gallery) -->
+    <div class="modal fade" id="carDetailModal" tabindex="-1" aria-hidden="true">
+        <div class="modal-dialog modal-lg">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title fw-bold" id="carDetailTitle">🏠 Maelezo ya Bidhaa</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+                </div>
+                <div class="modal-body" id="carDetailBody">
+                    <!-- Rendered by JavaScript -->
+                </div>
+                <div class="modal-footer">
+                    <button class="btn btn-secondary btn-sm" data-bs-dismiss="modal">Funga</button>
+                    <button class="btn btn-success btn-sm" id="carDetailWhatsappBtn">💬 Agiza kwa WhatsApp</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- ============ SCRIPTS ============ -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+
+    <script>
+        // ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+        // LOCAL STORAGE DATABASE
+        // ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+        const DB_KEY = 'mabatiZoneDB';
+
+        function getDB() {
+            const raw = localStorage.getItem(DB_KEY);
+            if (raw) {
+                try { return JSON.parse(raw); } catch(e) { /* fall through */ }
+            }
+            const defaultDB = {
+                users: [
+                    { uid: 'admin1', email: 'admin@example.com', password: 'admin123', fullName: 'Msimamizi Mkuu', role: 'admin', phone: '712000001' },
+                    { uid: 'dealer1', email: 'dealer@example.com', password: 'dealer123', fullName: 'Mabati Zone - Muuzaji', role: 'dealer', phone: '712345678' },
+                    { uid: 'buyer1', email: 'buyer@example.com', password: 'buyer123', fullName: 'Mteja Mkuu', role: 'buyer', phone: '' }
+                ],
+                products: [{
+                    id: 'p1',
+                    title: 'Mabati Gofu 30 Gauge - ALAF',
+                    category: 'Mabati Gofu',
+                    company: 'ALAF',
+                    gauge: '30',
+                    length: 3,
+                    price: 38000,
+                    unit: 'kwa sheet',
+                    color: 'Nyekundu',
+                    condition: 'mpya',
+                    region: 'Dar es Salaam',
+                    description: 'Mabati gofu bora ya ALAF, 30 gauge, urefu wa mita 3. Yanakuja na warranty ya miaka 10. Yanafaa kwa nyumba za kisasa.',
+                    images: [
+                        'https://picsum.photos/seed/mabati1/800/600',
+                        'https://picsum.photos/seed/mabati2/800/600',
+                        'https://picsum.photos/seed/mabati3/800/600'
+                    ],
+                    dealerId: 'dealer1',
+                    createdAt: Date.now() - 86400000,
+                    featured: true,
+                    sold: false
+                }, {
+                    id: 'p2',
+                    title: 'Mabati Mikate 32 Gauge (Maliasili)',
+                    category: 'Mabati Mikate',
+                    company: 'Maisha Mabati',
+                    gauge: '32',
+                    length: 3,
+                    price: 28000,
+                    unit: 'kwa sheet',
+                    color: 'Asili',
+                    condition: 'mpya',
+                    region: 'Arusha',
+                    description: 'Mabati mikate ya asili, imara na bei nafuu. Bora kwa nyumba za vijijini na mijini.',
+                    images: [
+                        'https://picsum.photos/seed/mabati4/800/600',
+                        'https://picsum.photos/seed/mabati5/800/600'
+                    ],
+                    dealerId: 'dealer1',
+                    createdAt: Date.now() - 172800000,
+                    featured: false,
+                    sold: false
+                }, {
+                    id: 'p3',
+                    title: 'Mabati Roman 28 Gauge - Tembo',
+                    category: 'Mabati Roman',
+                    company: 'Tembo Steel',
+                    gauge: '28',
+                    length: 3,
+                    price: 52000,
+                    unit: 'kwa sheet',
+                    color: 'Kijani',
+                    condition: 'mpya',
+                    region: 'Mwanza',
+                    description: 'Mabati Roman ya Tembo Steel, 28 gauge, rangi ya kijani. Muonekano wa kifahari kwa paa lako.',
+                    images: [
+                        'https://picsum.photos/seed/mabati6/800/600'
+                    ],
+                    dealerId: 'dealer1',
+                    createdAt: Date.now() - 259200000,
+                    featured: false,
+                    sold: false
+                }, {
+                    id: 'p4',
+                    title: 'Mabati Zeta 30 Gauge - ALAF',
+                    category: 'Mabati Zeta',
+                    company: 'ALAF',
+                    gauge: '30',
+                    length: 3,
+                    price: 42000,
+                    unit: 'kwa sheet',
+                    color: 'Bluu',
+                    condition: 'mpya',
+                    region: 'Dodoma',
+                    description: 'Mabati Zeta yenye muonekano wa kisasa. Nzito, imara na haipitishi maji.',
+                    images: [
+                        'https://picsum.photos/seed/mabati7/800/600',
+                        'https://picsum.photos/seed/mabati8/800/600',
+                        'https://picsum.photos/seed/mabati9/800/600'
+                    ],
+                    dealerId: 'dealer1',
+                    createdAt: Date.now() - 345600000,
+                    featured: true,
+                    sold: false
+                }, {
+                    id: 'p5',
+                    title: 'Mabati Trapezoidal 30 Gauge - Tononoka',
+                    category: 'Mabati Trapezoidal',
+                    company: 'Tononoka',
+                    gauge: '30',
+                    length: 3,
+                    price: 45000,
+                    unit: 'kwa sheet',
+                    color: 'Grey',
+                    condition: 'mpya',
+                    region: 'Mbeya',
+                    description: 'Mabati trapezoidal yenye nguvu kubwa. Bora kwa viwanda na maghala pia.',
+                    images: [
+                        'https://picsum.photos/seed/mabati10/800/600',
+                        'https://picsum.photos/seed/mabati11/800/600',
+                        'https://picsum.photos/seed/mabati12/800/600',
+                        'https://picsum.photos/seed/mabati13/800/600'
+                    ],
+                    dealerId: 'dealer1',
+                    createdAt: Date.now() - 432000000,
+                    featured: false,
+                    sold: false
+                }, {
+                    id: 'p6',
+                    title: 'Misumari ya Mabati (Kwa Kilo)',
+                    category: 'Misumari',
+                    company: 'Nyingine',
+                    gauge: '',
+                    length: '',
+                    price: 4500,
+                    unit: 'kwa kilo',
+                    color: 'Nyeusi',
+                    condition: 'mpya',
+                    region: 'Dar es Salaam',
+                    description: 'Misumari imara ya kufunga mabati, yenye rubber washer kuzuia uvujaji wa maji.',
+                    images: [
+                        'https://picsum.photos/seed/misumari1/800/600'
+                    ],
+                    dealerId: 'dealer1',
+                    createdAt: Date.now() - 518400000,
+                    featured: false,
+                    sold: false
+                }]
+            };
+            localStorage.setItem(DB_KEY, JSON.stringify(defaultDB));
+            return defaultDB;
+        }
+
+        function saveDB(db) {
+            localStorage.setItem(DB_KEY, JSON.stringify(db));
+        }
+
+        // ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+        // APP STATE
+        // ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+        let currentUser = null;
+        let selectedRole = 'admin';
+        let currentPage = 'dashboard';
+
+        // ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+        // HELPERS
+        // ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+        function formatCurrency(amount) {
+            return 'TSh ' + Number(amount || 0).toLocaleString('en-US');
+        }
+
+        function generateId() {
+            return 'id_' + Date.now() + '_' + Math.random().toString(36).substr(2, 6);
+        }
+
+        // ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+        // SET ROLE
+        // ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+        function setRole(role) {
+            selectedRole = role;
+            document.querySelectorAll('.role-toggle .btn').forEach(b => b.classList.toggle('active', b.dataset.role === role));
+
+            const usernameInput = document.getElementById('loginUsername');
+            const passwordInput = document.getElementById('loginPassword');
+            const loginLabel = document.getElementById('loginLabel');
+            const buyerHint = document.getElementById('buyerHint');
+            const fieldsWrapper = document.getElementById('loginFieldsWrapper');
+            const pwdWrapper = document.getElementById('passwordWrapper');
+
+            if (role === 'buyer') {
+                fieldsWrapper.style.display = 'none';
+                pwdWrapper.style.display = 'none';
+                buyerHint.style.display = 'block';
+                usernameInput.removeAttribute('required');
+                passwordInput.removeAttribute('required');
+                usernameInput.value = '';
+                passwordInput.value = '';
+            } else {
+                fieldsWrapper.style.display = 'block';
+                pwdWrapper.style.display = 'block';
+                buyerHint.style.display = 'none';
+                usernameInput.setAttribute('required', 'required');
+                passwordInput.setAttribute('required', 'required');
+                loginLabel.textContent = 'Barua pepe';
+                if (role === 'admin') {
+                    usernameInput.placeholder = 'Weka barua pepe';
+                    usernameInput.value = 'admin@example.com';
+                    passwordInput.value = 'admin123';
+                } else if (role === 'dealer') {
+                    usernameInput.placeholder = 'Weka barua pepe yako';
+                    usernameInput.value = 'dealer@example.com';
+                    passwordInput.value = 'dealer123';
+                }
+            }
+        }
+
+        // ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+        // LOGIN / LOGOUT
+        // ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+        function handleLogin(e) {
+            e.preventDefault();
+            const btn = document.getElementById('loginBtn');
+            btn.disabled = true;
+            btn.innerHTML = '⏳ Inaingia...';
+
+            const db = getDB();
+
+            if (selectedRole === 'buyer') {
+                let buyer = db.users.find(u => u.uid === 'buyer_guest');
+                if (!buyer) {
+                    buyer = {
+                        uid: 'buyer_guest',
+                        email: 'mteja@guest.com',
+                        password: '',
+                        fullName: 'Mteja (Guest)',
+                        role: 'buyer',
+                        phone: ''
+                    };
+                    db.users.push(buyer);
+                    saveDB(db);
+                }
+                currentUser = buyer;
+                showApp();
+                btn.disabled = false;
+                btn.innerHTML = '🔐 Ingia';
+                return false;
+            }
+
+            const username = document.getElementById('loginUsername').value.trim();
+            const password = document.getElementById('loginPassword').value.trim();
+            const user = db.users.find(u => u.email === username && u.password === password);
+
+            if (!user) {
+                alert('❌ Barua pepe au neno siri si sahihi.');
+                btn.disabled = false;
+                btn.innerHTML = '🔐 Ingia';
+                return false;
+            }
+            if (selectedRole === 'admin' && user.role !== 'admin') {
+                alert('❌ Mtumiaji huyu si Admin. Chagua jukumu sahihi.');
+                btn.disabled = false;
+                btn.innerHTML = '🔐 Ingia';
+                return false;
+            }
+            if (selectedRole === 'dealer' && user.role !== 'dealer') {
+                alert('❌ Mtumiaji huyu si Muuzaji. Chagua jukumu sahihi.');
+                btn.disabled = false;
+                btn.innerHTML = '🔐 Ingia';
+                return false;
+            }
+
+            currentUser = user;
+            showApp();
+            btn.disabled = false;
+            btn.innerHTML = '🔐 Ingia';
+            return false;
+        }
+
+        function handleLogout() {
+            currentUser = null;
+            document.getElementById('loginPage').style.display = 'flex';
+            document.getElementById('mainContent').style.display = 'none';
+            document.getElementById('sidebar').classList.remove('open');
+            document.getElementById('sidebarOverlay').classList.remove('active');
+            setRole('admin');
+        }
+
+        // ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+        // SHOW APP
+        // ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+        function showApp() {
+            document.getElementById('loginPage').style.display = 'none';
+            document.getElementById('mainContent').style.display = 'block';
+
+            const isAdmin = currentUser.role === 'admin';
+            const isDealer = currentUser.role === 'dealer';
+            const label = isAdmin ? 'Admin' : (isDealer ? 'Muuzaji' : 'Mteja');
+
+            document.getElementById('userRoleBadge').textContent = label;
+            document.getElementById('userAvatar').textContent = isAdmin ? 'A' : (isDealer ? 'M' : 'T');
+            document.getElementById('dashboardUserName').textContent = currentUser.fullName || label;
+            document.getElementById('sidebarRoleLabel').textContent = 'TZ • ' + label;
+
+            // Admin Panel — Admin pekee
+            document.querySelectorAll('.sidebar .nav-link[data-page="admin"]').forEach(el => {
+                el.style.display = isAdmin ? 'flex' : 'none';
+            });
+
+            // Bidhaa Zangu & Ongeza Bidhaa — Admin na Muuzaji
+            document.querySelectorAll('.sidebar .nav-link[data-page="mycars"], .sidebar .nav-link[data-page="addcar"]')
+                .forEach(el => {
+                    el.style.display = (isAdmin || isDealer) ? 'flex' : 'none';
+                });
+
+            // Badilisha neno la siri — Admin pekee
+            const changePwdBtn = document.querySelector('.change-pwd-btn');
+            if (changePwdBtn) changePwdBtn.style.display = isAdmin ? 'inline-block' : 'none';
+
+            navigate('dashboard');
+        }
+
+        // ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+        // NAVIGATION
+        // ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+        function navigate(page) {
+            if (!currentUser) return;
+            if (currentUser.role === 'buyer' && !['dashboard', 'listings', 'calculator'].includes(page)) {
+                page = 'listings';
+            }
+            currentPage = page;
+
+            document.querySelectorAll('.page-section').forEach(el => el.classList.remove('active'));
+            const target = document.getElementById('page-' + page);
+            if (target) target.classList.add('active');
+
+            document.querySelectorAll('.sidebar .nav-link').forEach(link => {
+                link.classList.toggle('active', link.dataset.page === page);
+            });
+
+            const titles = {
+                dashboard: 'Dashibodi',
+                listings: 'Bidhaa Zote',
+                calculator: 'Kikokotoo cha Mabati',
+                mycars: 'Bidhaa Zangu',
+                addcar: 'Ongeza Bidhaa',
+                admin: 'Admin Panel'
+            };
+            document.getElementById('pageTitle').textContent = titles[page] || 'Dashibodi';
+
+            if (page === 'dashboard') renderDashboard();
+            if (page === 'listings') renderListings();
+            if (page === 'mycars') renderMyProducts();
+            if (page === 'addcar') renderAddProduct();
+            if (page === 'admin') renderAdmin();
+
+            closeSidebar();
+            window.scrollTo({ top: 0, behavior: 'smooth' });
+        }
+
+        function toggleSidebar() {
+            document.getElementById('sidebar').classList.toggle('open');
+            document.getElementById('sidebarOverlay').classList.toggle('active');
+        }
+
+        function closeSidebar() {
+            document.getElementById('sidebar').classList.remove('open');
+            document.getElementById('sidebarOverlay').classList.remove('active');
+        }
+
+        // ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+        // RENDER: DASHBOARD
+        // ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+        function renderDashboard() {
+            const db = getDB();
+            const products = db.products || [];
+            const users = db.users || [];
+            const featured = products.filter(p => p.featured);
+            const totalValue = products.reduce((sum, p) => sum + (p.price || 0), 0);
+
+            document.getElementById('statCars').textContent = products.length;
+            document.getElementById('statUsers').textContent = users.length;
+            document.getElementById('statFeatured').textContent = featured.length;
+            document.getElementById('statValue').textContent = formatCurrency(totalValue);
+
+            const hideStats = currentUser && (currentUser.role === 'dealer' || currentUser.role === 'buyer');
+            document.getElementById('stat-col-users').style.display = hideStats ? 'none' : '';
+            document.getElementById('stat-col-featured').style.display = hideStats ? 'none' : '';
+            document.getElementById('stat-col-value').style.display = hideStats ? 'none' : '';
+            document.getElementById('stat-col-cars').style.display = '';
+        }
+
+        // ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+        // RENDER: LISTINGS
+        // ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+        function renderListings() {
+            const db = getDB();
+            const search = (document.getElementById('searchListings').value || '').toLowerCase();
+            const catFilter = document.getElementById('filterCategory').value;
+            const compFilter = document.getElementById('filterCompany').value;
+            const regionFilter = document.getElementById('filterRegion').value;
+
+            let products = db.products || [];
+            if (search) {
+                products = products.filter(p =>
+                    (p.title || '').toLowerCase().includes(search) ||
+                    (p.company || '').toLowerCase().includes(search) ||
+                    (p.category || '').toLowerCase().includes(search)
+                );
+            }
+            if (catFilter) products = products.filter(p => p.category === catFilter);
+            if (compFilter) products = products.filter(p => p.company === compFilter);
+            if (regionFilter) products = products.filter(p => p.region === regionFilter);
+
+            products.sort((a, b) => (b.featured ? 1 : 0) - (a.featured ? 1 : 0));
+
+            const grid = document.getElementById('listingsGrid');
+            if (products.length === 0) {
+                grid.innerHTML = '<div class="col-12 text-center text-muted py-5">Hakuna bidhaa zinazolingana na vichujio vyako.</div>';
+                return;
+            }
+
+            grid.innerHTML = products.map(p => {
+                const firstImg = (p.images && p.images.length > 0) ? p.images[0] : '';
+                const imageHtml = firstImg ? `<img src="${firstImg}" alt="${p.title}" />` : '<span>🏠</span>';
+                const imgCount = (p.images && p.images.length > 1) ? p.images.length : 0;
+                const dealer = db.users.find(u => u.uid === p.dealerId);
+                const canEdit = (p.dealerId === currentUser.uid || currentUser.role === 'admin');
+
+                return `
+                    <div class="col-md-6 col-lg-4">
+                        <div class="car-card">
+                            <div class="car-img">
+                                ${imageHtml}
+                                ${p.featured ? '<span class="featured-badge">⭐ Featured</span>' : ''}
+                                ${p.sold ? '<span class="sold-badge">IMEUZWA</span>' : ''}
+                                ${imgCount > 1 ? `<span class="multi-badge">📸 ${imgCount}</span>` : ''}
+                            </div>
+                            <div class="car-body">
+                                <div class="car-title">${p.title}</div>
+                                <div class="car-price">${formatCurrency(p.price)} <small>${p.unit || ''}</small></div>
+                                <div class="car-details">${p.category || ''} ${p.company ? '• ' + p.company : ''} ${p.gauge ? '• Gauge ' + p.gauge : ''}</div>
+                                <div class="car-details">${p.length ? 'Urefu: ' + p.length + 'm' : ''} ${p.color ? '• ' + p.color : ''} ${p.region ? '• ' + p.region : ''}</div>
+                                <div class="car-actions">
+                                    <button class="btn btn-sm btn-outline-primary" onclick="viewProduct('${p.id}')">👁️ Tazama</button>
+                                    ${canEdit ? `
+                                        <button class="btn btn-sm btn-outline-warning" onclick="editProduct('${p.id}')">✏️</button>
+                                        <button class="btn btn-sm btn-outline-danger" onclick="deleteProduct('${p.id}')">🗑️</button>
+                                    ` : ''}
+                                    ${dealer && dealer.phone ? `<a href="https://wa.me/255${dealer.phone.replace(/[^0-9]/g,'')}?text=Nahitaji%20${encodeURIComponent(p.title)}" target="_blank" class="btn btn-sm whatsapp-btn">💬</a>` : ''}
+                                    ${currentUser.role === 'admin' ? `<button class="btn btn-sm btn-outline-secondary" onclick="toggleFeatured('${p.id}')">${p.featured ? '⭐' : '☆'}</button>` : ''}
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                `;
+            }).join('');
+        }
+
+        // ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+        // RENDER: MY PRODUCTS
+        // ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+        function renderMyProducts() {
+            const db = getDB();
+            const myProducts = (db.products || []).filter(p => p.dealerId === currentUser.uid);
+            const grid = document.getElementById('myCarsGrid');
+
+            if (myProducts.length === 0) {
+                grid.innerHTML = '<div class="col-12 text-center text-muted py-5">Hujaongeza bidhaa yoyote. Bonyeza "Ongeza Bidhaa".</div>';
+                return;
+            }
+
+            grid.innerHTML = myProducts.map(p => {
+                const firstImg = (p.images && p.images.length > 0) ? p.images[0] : '';
+                const imgHtml = firstImg ? `<img src="${firstImg}" alt="${p.title}" />` : '<span>🏠</span>';
+                const imgCount = (p.images && p.images.length > 1) ? p.images.length : 0;
+                return `
+                    <div class="col-md-6 col-lg-4">
+                        <div class="car-card">
+                            <div class="car-img">
+                                ${imgHtml}
+                                ${p.featured ? '<span class="featured-badge">⭐ Featured</span>' : ''}
+                                ${p.sold ? '<span class="sold-badge">IMEUZWA</span>' : ''}
+                                ${imgCount > 1 ? `<span class="multi-badge">📸 ${imgCount}</span>` : ''}
+                            </div>
+                            <div class="car-body">
+                                <div class="car-title">${p.title}</div>
+                                <div class="car-price">${formatCurrency(p.price)} <small>${p.unit || ''}</small></div>
+                                <div class="car-details">${p.category || ''} ${p.gauge ? '• Gauge ' + p.gauge : ''} ${p.length ? '• ' + p.length + 'm' : ''}</div>
+                                <div class="car-actions">
+                                    <button class="btn btn-sm btn-outline-primary" onclick="editProduct('${p.id}')">✏️ Hariri</button>
+                                    <button class="btn btn-sm btn-outline-danger" onclick="deleteProduct('${p.id}')">🗑️ Futa</button>
+                                    <button class="btn btn-sm ${p.sold ? 'btn-secondary' : 'btn-outline-success'}" onclick="toggleSold('${p.id}')">
+                                        ${p.sold ? '✅ Imeuzwa' : '🔵 Inapatikana'}
+                                    </button>
+                                    <button class="btn btn-sm btn-outline-warning" onclick="toggleFeatured('${p.id}')">
+                                        ${p.featured ? '⭐ Featured' : '☆ Featured'}
+                                    </button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                `;
+            }).join('');
+        }
+
+        // ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+        // RENDER: ADD PRODUCT
+        // ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+        function renderAddProduct() {
+            document.getElementById('addCarTitle').textContent = 'Ongeza Bidhaa';
+            document.getElementById('editProductId').value = '';
+            document.getElementById('prodTitle').value = '';
+            document.getElementById('prodCategory').value = '';
+            document.getElementById('prodCompany').value = '';
+            document.getElementById('prodGauge').value = '';
+            document.getElementById('prodLength').value = '';
+            document.getElementById('prodPrice').value = '';
+            document.getElementById('prodUnit').value = 'kwa sheet';
+            document.getElementById('prodColor').value = '';
+            document.getElementById('prodCondition').value = 'mpya';
+            document.getElementById('prodRegion').value = 'Dar es Salaam';
+            document.getElementById('prodDescription').value = '';
+            document.getElementById('prodImageFile').value = '';
+            document.getElementById('imagePreviewContainer').innerHTML = '';
+        }
+
+        function editProduct(id) {
+            const db = getDB();
+            const p = (db.products || []).find(x => x.id === id);
+            if (!p) return alert('Bidhaa haipatikani.');
+
+            document.getElementById('addCarTitle').textContent = 'Hariri Bidhaa';
+            document.getElementById('editProductId').value = id;
+            document.getElementById('prodTitle').value = p.title || '';
+            document.getElementById('prodCategory').value = p.category || '';
+            document.getElementById('prodCompany').value = p.company || '';
+            document.getElementById('prodGauge').value = p.gauge || '';
+            document.getElementById('prodLength').value = p.length || '';
+            document.getElementById('prodPrice').value = p.price || '';
+            document.getElementById('prodUnit').value = p.unit || 'kwa sheet';
+            document.getElementById('prodColor').value = p.color || '';
+            document.getElementById('prodCondition').value = p.condition || 'mpya';
+            document.getElementById('prodRegion').value = p.region || 'Dar es Salaam';
+            document.getElementById('prodDescription').value = p.description || '';
+            document.getElementById('prodImageFile').value = '';
+
+            const container = document.getElementById('imagePreviewContainer');
+            container.innerHTML = '';
+            if (p.images && p.images.length > 0) {
+                p.images.forEach((img, idx) => {
+                    const div = document.createElement('div');
+                    div.className = 'preview-item';
+                    div.innerHTML = `
+                        <img src="${img}" class="image-preview-thumb" />
+                        <button type="button" class="remove-btn" onclick="removeExistingImage('${id}', ${idx})">×</button>
+                    `;
+                    container.appendChild(div);
+                });
+            }
+            navigate('addcar');
+        }
+
+        function removeExistingImage(productId, index) {
+            const db = getDB();
+            const p = db.products.find(x => x.id === productId);
+            if (!p) return;
+            if (p.images && p.images.length > index) {
+                p.images.splice(index, 1);
+                saveDB(db);
+                editProduct(productId);
+                renderListings();
+                renderMyProducts();
+                renderAdmin();
+            }
+        }
+
+        // ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+        // IMAGE HANDLING (na compression)
+        // ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+        function compressImage(file, maxWidth = 700, quality = 0.68) {
+            return new Promise((resolve, reject) => {
+                const reader = new FileReader();
+                reader.onload = function(e) {
+                    const img = new Image();
+                    img.onload = function() {
+                        const canvas = document.createElement('canvas');
+                        let width = img.width;
+                        let height = img.height;
+                        if (width > maxWidth) {
+                            height = (maxWidth / width) * height;
+                            width = maxWidth;
+                        }
+                        canvas.width = width;
+                        canvas.height = height;
+                        const ctx = canvas.getContext('2d');
+                        ctx.drawImage(img, 0, 0, width, height);
+                        resolve(canvas.toDataURL('image/jpeg', quality));
+                    };
+                    img.onerror = reject;
+                    img.src = e.target.result;
+                };
+                reader.onerror = reject;
+                reader.readAsDataURL(file);
+            });
+        }
+
+        document.addEventListener('change', async function(e) {
+            if (e.target && e.target.id === 'prodImageFile') {
+                const files = Array.from(e.target.files || []);
+                const container = document.getElementById('imagePreviewContainer');
+                const existing = container.querySelectorAll('.preview-item').length;
+
+                if (existing + files.length > 5) {
+                    alert('Unaweza kuwa na picha hadi 5 pekee.');
+                    e.target.value = '';
+                    return;
+                }
+                for (const file of files) {
+                    try {
+                        const dataUrl = await compressImage(file);
+                        const div = document.createElement('div');
+                        div.className = 'preview-item';
+                        div.innerHTML = `
+                            <img src="${dataUrl}" class="image-preview-thumb" />
+                            <button type="button" class="remove-btn" onclick="removePreviewImage(this)">×</button>
+                        `;
+                        container.appendChild(div);
+                    } catch (err) {
+                        console.error('Kosa la picha:', err);
+                    }
+                }
+                e.target.value = '';
+            }
+        });
+
+        function removePreviewImage(btn) {
+            btn.parentElement.remove();
+        }
+
+        // ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+        // VIEW PRODUCT (Gallery)
+        // ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+        function viewProduct(id) {
+            const db = getDB();
+            const p = db.products.find(x => x.id === id);
+            if (!p) return alert('Bidhaa haipatikani.');
+
+            const images = (p.images && Array.isArray(p.images) && p.images.length > 0) ? p.images : [];
+            document.getElementById('carDetailTitle').textContent = `🏠 ${p.title}`;
+
+            let galleryHtml = '';
+            if (images.length === 0) {
+                galleryHtml = `
+                    <div class="text-center py-5 text-muted">
+                        <i class="bi bi-image" style="font-size:64px;"></i>
+                        <p class="mt-2">Hakuna picha za bidhaa hii.</p>
+                    </div>
+                `;
+            } else {
+                let indicators = '';
+                let slides = '';
+                images.forEach((img, idx) => {
+                    indicators += `<button type="button" data-bs-target="#productGallery" data-bs-slide-to="${idx}" class="${idx === 0 ? 'active' : ''}"></button>`;
+                    slides += `
+                        <div class="carousel-item ${idx === 0 ? 'active' : ''}">
+                            <img src="${img}" class="d-block w-100" style="max-height:450px; object-fit:contain; background:#0b1f33;" />
+                        </div>
+                    `;
+                });
+                galleryHtml = `
+                    <div id="productGallery" class="carousel slide" data-bs-ride="carousel" data-bs-interval="3000">
+                        <div class="carousel-inner" style="border-radius:12px; background:#0b1f33;">
+                            ${slides}
+                        </div>
+                        ${images.length > 1 ? `
+                            <button class="carousel-control-prev" type="button" data-bs-target="#productGallery" data-bs-slide="prev">
+                                <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                                <span class="visually-hidden">Previous</span>
+                            </button>
+                            <button class="carousel-control-next" type="button" data-bs-target="#productGallery" data-bs-slide="next">
+                                <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                                <span class="visually-hidden">Next</span>
+                            </button>
+                        ` : ''}
+                        <div class="carousel-indicators">${indicators}</div>
+                    </div>
+                `;
+            }
+
+            const dealer = db.users.find(u => u.uid === p.dealerId);
+
+            document.getElementById('carDetailBody').innerHTML = `
+                <div class="p-3">
+                    ${galleryHtml}
+                    <div class="mt-4">
+                        <div class="row g-2">
+                            <div class="col-6 col-md-4"><strong>Aina:</strong> ${p.category || '-'}</div>
+                            <div class="col-6 col-md-4"><strong>Kampuni:</strong> ${p.company || '-'}</div>
+                            <div class="col-6 col-md-4"><strong>Gauge:</strong> ${p.gauge || '-'}</div>
+                            <div class="col-12 col-md-4"><strong>Bei:</strong> ${formatCurrency(p.price)} <small class="text-muted">${p.unit || ''}</small></div>
+                            <div class="col-6 col-md-4"><strong>Urefu:</strong> ${p.length ? p.length + ' m' : '-'}</div>
+                            <div class="col-6 col-md-4"><strong>Rangi:</strong> ${p.color || '-'}</div>
+                            <div class="col-6 col-md-4"><strong>Hali:</strong> ${p.condition || 'mpya'}</div>
+                            <div class="col-6 col-md-4"><strong>Mkoa:</strong> ${p.region || 'TZ'}</div>
+                            <div class="col-12"><strong>Maelezo:</strong> ${p.description || 'Hakuna maelezo.'}</div>
+                            <div class="col-12"><strong>Muuzaji:</strong> ${dealer ? (dealer.fullName || 'Muuzaji') : 'Unknown'}</div>
+                            <div class="col-12">
+                                <span class="badge ${p.featured ? 'bg-warning' : 'bg-secondary'}">${p.featured ? '⭐ Featured' : 'Normal'}</span>
+                                <span class="badge ${p.sold ? 'bg-danger' : 'bg-success'}">${p.sold ? 'IMEUZWA' : 'INAPATIKANA'}</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            `;
+
+            const waBtn = document.getElementById('carDetailWhatsappBtn');
+            if (dealer && dealer.phone) {
+                const phone = dealer.phone.replace(/[^0-9]/g, '');
+                waBtn.style.display = 'inline-block';
+                waBtn.onclick = function() {
+                    window.open(`https://wa.me/255${phone}?text=Nahitaji%20${encodeURIComponent(p.title)}%20-%20${formatCurrency(p.price)}`, '_blank');
+                };
+            } else {
+                waBtn.style.display = 'none';
+            }
+
+            new bootstrap.Modal(document.getElementById('carDetailModal')).show();
+        }
+
+        // ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+        // SAVE PRODUCT
+        // ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+        function handleAddProduct(e) {
+            e.preventDefault();
+
+            const id = document.getElementById('editProductId').value;
+            const title = document.getElementById('prodTitle').value.trim();
+            const category = document.getElementById('prodCategory').value;
+            const company = document.getElementById('prodCompany').value;
+            const gauge = document.getElementById('prodGauge').value;
+            const length = document.getElementById('prodLength').value.trim();
+            const price = parseFloat(document.getElementById('prodPrice').value);
+            const unit = document.getElementById('prodUnit').value;
+            const color = document.getElementById('prodColor').value.trim();
+            const condition = document.getElementById('prodCondition').value;
+            const region = document.getElementById('prodRegion').value;
+            const description = document.getElementById('prodDescription').value.trim();
+
+            if (!title || !price) {
+                alert('Tafadhali jaza Jina la Bidhaa na Bei (zinahitajika).');
+                return false;
+            }
+
+            let lengthNum = null;
+            if (length !== '') {
+                lengthNum = parseFloat(length);
+                if (isNaN(lengthNum)) {
+                    alert('Urefu unapaswa kuwa namba sahihi.');
+                    return false;
+                }
+            }
+
+            const db = getDB();
+            const previewItems = document.querySelectorAll('#imagePreviewContainer .preview-item img');
+            const imageUrls = [];
+            previewItems.forEach(img => imageUrls.push(img.src));
+
+            let finalImages = imageUrls;
+            if (id) {
+                const existing = db.products.find(x => x.id === id);
+                if (existing && existing.images && imageUrls.length === 0) {
+                    finalImages = existing.images;
+                }
+            }
+
+            if (finalImages.length > 5) {
+                alert('Unaweza kupakia picha hadi 5 pekee.');
+                return false;
+            }
+
+            const productData = {
+                title,
+                category: category || '',
+                company: company || '',
+                gauge: gauge || '',
+                length: lengthNum,
+                price,
+                unit,
+                color,
+                condition,
+                region,
+                description,
+                images: finalImages
+            };
+
+            if (id) {
+                const index = db.products.findIndex(x => x.id === id);
+                if (index !== -1) {
+                    db.products[index] = { ...db.products[index], ...productData };
+                }
+            } else {
+                db.products.push({
+                    id: generateId(),
+                    ...productData,
+                    dealerId: currentUser.uid,
+                    createdAt: Date.now(),
+                    featured: false,
+                    sold: false
+                });
+            }
+
+            saveDB(db);
+            alert('✅ Bidhaa imehifadhiwa!');
+            navigate('mycars');
+            return false;
+        }
+
+        // ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+        // PRODUCT ACTIONS
+        // ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+        function deleteProduct(id) {
+            if (!confirm('Futa bidhaa hii?')) return;
+            const db = getDB();
+            db.products = db.products.filter(p => p.id !== id);
+            saveDB(db);
+            alert('✅ Bidhaa imefutwa.');
+            renderListings();
+            renderMyProducts();
+            renderAdmin();
+        }
+
+        function toggleSold(id) {
+            const db = getDB();
+            const p = db.products.find(x => x.id === id);
+            if (!p) return;
+            p.sold = !p.sold;
+            saveDB(db);
+            renderMyProducts();
+            renderListings();
+        }
+
+        function toggleFeatured(id) {
+            const db = getDB();
+            const p = db.products.find(x => x.id === id);
+            if (!p) return;
+            p.featured = !p.featured;
+            saveDB(db);
+            renderListings();
+            renderMyProducts();
+            renderAdmin();
+        }
+
+        // ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+        // KIKOKOTOO CHA MABATI
+        // ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+        function calculateMabati() {
+            const L = parseFloat(document.getElementById('calcLength').value);
+            const W = parseFloat(document.getElementById('calcWidth').value);
+            const factor = parseFloat(document.getElementById('calcRoofType').value);
+            const sheetW = parseFloat(document.getElementById('calcSheetWidth').value);
+            const sheetL = parseFloat(document.getElementById('calcSheetLength').value);
+            const price = parseFloat(document.getElementById('calcPrice').value) || 0;
+
+            const box = document.getElementById('calcResult');
+
+            if (!L || !W || !sheetW || !sheetL || L <= 0 || W <= 0 || sheetW <= 0 || sheetL <= 0) {
+                box.innerHTML = '<div class="text-center text-danger py-4"><i class="bi bi-exclamation-triangle-fill" style="font-size:40px;"></i><p class="mt-2 mb-0">Tafadhali weka vipimo sahihi.</p></div>';
+                return;
+            }
+
+            const roofArea = L * W * factor;
+            const sheetArea = sheetW * sheetL;
+            const sheets = Math.ceil(roofArea / sheetArea);
+            const sheetsWithWaste = Math.ceil(sheets * 1.10);
+            const cost = sheetsWithWaste * price;
+
+            box.innerHTML = `
+                <div class="text-center">
+                    <div class="text-muted small">Idadi ya Mabati Inayohitajika</div>
+                    <div class="big">${sheetsWithWaste} sheets</div>
+                    <div class="text-muted small mb-3">(imeongezwa 10% kwa upotevu/waste)</div>
+                </div>
+                <hr />
+                <div class="row g-2 small">
+                    <div class="col-6"><strong>Eneo la Paa:</strong> ${roofArea.toFixed(1)} m²</div>
+                    <div class="col-6"><strong>Eneo la Bati 1:</strong> ${sheetArea.toFixed(2)} m²</div>
+                    <div class="col-6"><strong>Mabati (bila waste):</strong> ${sheets}</div>
+                    <div class="col-6"><strong>Mabati (na waste):</strong> ${sheetsWithWaste}</div>
+                    ${price > 0 ? `<div class="col-12 mt-2 pt-2 border-top"><strong>Makadirio ya Gharama:</strong> <span class="text-primary-custom fw-bold">${formatCurrency(cost)}</span></div>` : ''}
+                </div>
+                <div class="alert alert-light border mt-3 mb-0 small">
+                    <i class="bi bi-info-circle me-1 text-primary"></i>
+                    Makadirio haya ni ya awali. Wasiliana nasi kwa ushauri wa kitaalamu wa kupima paa lako.
+                </div>
+            `;
+        }
+
+        // ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+        // RENDER: ADMIN
+        // ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+        function renderAdmin() {
+            if (!currentUser || currentUser.role !== 'admin') {
+                document.getElementById('adminUsersTable').innerHTML = '<tr><td colspan="4" class="text-muted">Hakuna ruhusa.</td></tr>';
+                document.getElementById('adminListingsTable').innerHTML = '<tr><td colspan="4" class="text-muted">Hakuna ruhusa.</td></tr>';
+                return;
+            }
+            const db = getDB();
+            const users = db.users || [];
+
+            document.getElementById('adminUsersTable').innerHTML = users.map(u => `
+                <tr>
+                    <td>${u.fullName || 'Mtumiaji'}</td>
+                    <td>${u.email}</td>
+                    <td><span class="badge bg-soft-primary text-primary-custom">${u.role || 'buyer'}</span></td>
+                    <td>
+                        <button class="btn btn-sm btn-outline-danger" onclick="deleteUser('${u.uid}')">🗑️</button>
+                    </td>
+                </tr>
+            `).join('');
+
+            const products = db.products || [];
+            document.getElementById('adminListingsTable').innerHTML = products.map(p => {
+                const dealer = users.find(u => u.uid === p.dealerId);
+                return `
+                    <tr>
+                        <td>${p.title}</td>
+                        <td>${formatCurrency(p.price)}</td>
+                        <td>${dealer ? (dealer.fullName || 'Muuzaji') : 'Unknown'}</td>
+                        <td>
+                            <button class="btn btn-sm btn-outline-warning" onclick="toggleFeatured('${p.id}')">${p.featured ? '⭐' : '☆'}</button>
+                            <button class="btn btn-sm btn-outline-danger" onclick="deleteProduct('${p.id}')">🗑️</button>
+                        </td>
+                    </tr>
+                `;
+            }).join('');
+        }
+
+        function deleteUser(uid) {
+            if (!confirm('Futa mtumiaji huyu?')) return;
+            const db = getDB();
+            db.users = db.users.filter(u => u.uid !== uid);
+            saveDB(db);
+            renderAdmin();
+        }
+
+        // ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+        // CHANGE PASSWORD (Admin pekee)
+        // ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+        function openChangePasswordModal() {
+            const db = getDB();
+            const user = db.users.find(u => u.uid === currentUser.uid);
+            if (user) {
+                document.getElementById('newUsername').value = user.email;
+                document.getElementById('newFullName').value = user.fullName || '';
+            } else {
+                document.getElementById('newUsername').value = '';
+                document.getElementById('newFullName').value = '';
+            }
+            document.getElementById('newPassword').value = '';
+            document.getElementById('currentPassword').value = '';
+            new bootstrap.Modal(document.getElementById('changePasswordModal')).show();
+        }
+
+        function savePasswordChange() {
+            const newUsername = document.getElementById('newUsername').value.trim();
+            const newFullName = document.getElementById('newFullName').value.trim();
+            const newPassword = document.getElementById('newPassword').value.trim();
+            const currentPassword = document.getElementById('currentPassword').value.trim();
+
+            if (!newUsername || !newPassword || !currentPassword) {
+                alert('Tafadhali jaza sehemu zote muhimu.');
+                return;
+            }
+
+            const db = getDB();
+            const user = db.users.find(u => u.uid === currentUser.uid);
+            if (!user) return alert('Mtumiaji hapatikani.');
+            if (user.password !== currentPassword) return alert('Neno la siri la sasa si sahihi.');
+
+            user.email = newUsername;
+            user.fullName = newFullName;
+            user.password = newPassword;
+            saveDB(db);
+            currentUser = user;
+            bootstrap.Modal.getInstance(document.getElementById('changePasswordModal')).hide();
+            alert('✅ Neno la siri limebadilishwa! Tafadhali ingia tena.');
+            handleLogout();
+        }
+
+        // ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+        // INIT
+        // ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+        document.getElementById('loginPage').style.display = 'flex';
+        document.getElementById('mainContent').style.display = 'none';
+        setRole('admin');
+
+        console.log('🏠 Mabati Zone Tanzania — “Ubora wa kuaminika zaidi” umeanza!');
+        console.log('👤 Admin  : admin@example.com / admin123');
+        console.log('🏢 Muuzaji: dealer@example.com / dealer123');
+        console.log('👤 Mteja  : Bonyeza "Mteja" na "Ingia" bila password.');
+        console.log('🧮 Kikokotoo cha Mabati kinapatikana kwa kila mtumiaji.');
+    </script>
+
+</body>
+</html>
