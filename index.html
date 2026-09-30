@@ -170,6 +170,30 @@
         .conn-status.offline { background: #fee2e2; color: #991b1b; }
         .conn-status.syncing { background: #fef3c7; color: #92400e; }
 
+        /* Social Media Links Styles */
+        .social-link { 
+            font-size: 24px; 
+            transition: all 0.3s ease; 
+            text-decoration: none;
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            width: 44px;
+            height: 44px;
+            border-radius: 50%;
+            background: #f8fafc;
+        }
+        .social-link:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+        }
+        .social-link.facebook { color: #1877F2; }
+        .social-link.facebook:hover { background: #1877F2; color: #fff; }
+        .social-link.tiktok { color: #000000; }
+        .social-link.tiktok:hover { background: #000000; color: #fff; }
+        .social-link.instagram { color: #E4405F; }
+        .social-link.instagram:hover { background: #E4405F; color: #fff; }
+
         @media (max-width: 992px) {
             .sidebar { transform: translateX(-100%); }
             .sidebar.open { transform: translateX(0); }
@@ -226,15 +250,27 @@
                 </div>
 
                 <div id="buyerHint" class="buyer-hint mb-3" style="display:none;">
-                    <i class="bi bi-info-circle me-1"></i> Kama Mteja, hauitaji barua pepe wala neno la siri. Bonyeza tu "Ingia".
+                    <i class="bi bi-info-circle me-1"></i>Mteja hauitaji barua pepe wala neno la siri. Bonyeza tu "Ingia".
                 </div>
 
                 <button type="submit" class="btn btn-primary" id="loginBtn">🔐 Ingia</button>
-                <div class="text-center mt-3">
-                    <span id="connStatus" class="conn-status syncing">
-                        <i class="bi bi-cloud-arrow-down"></i> Inaunganisha...
-                    </span>
+                
+                <!-- ============ SOCIAL MEDIA LINKS (BADILIKO JIPYA) ============ -->
+                <div class="text-center mt-4 pt-3 border-top">
+                    <p class="text-muted small mb-3">Tufuate kwenye mitandao ya kijamii:</p>
+                    <div class="d-flex justify-content-center gap-3">
+                        <a href="https://www.facebook.com/share/1JFZkbYZYL/" target="_blank" rel="noopener" class="social-link facebook" title="Facebook">
+                            <i class="bi bi-facebook"></i>
+                        </a>
+                        <a href="http://tiktok.com/@mabatizonetanzania/" target="_blank" rel="noopener" class="social-link tiktok" title="TikTok">
+                            <i class="bi bi-tiktok"></i>
+                        </a>
+                        <a href="https://www.instagram.com/mabatizonetanzania?stkn=MW80ZnF6bm1idzQ0dg==" target="_blank" rel="noopener" class="social-link instagram" title="Instagram">
+                            <i class="bi bi-instagram"></i>
+                        </a>
+                    </div>
                 </div>
+                <!-- ============================================================ -->
             </form>
         </div>
     </div>
@@ -432,15 +468,19 @@
                     </div>
                     <div class="col-sm-6 col-lg-2">
                         <select class="form-select" id="filterCompany" onchange="renderListings()">
-                            <option value="">Kampuni Zote</option>
-                            <option value="ALAF">ALAF</option>
-                            <option value="Maisha Mabati">Maisha Mabati</option>
-                            <option value="Tembo Steel">Tembo Steel</option>
-                            <option value="Simba Mabati">Simba Mabati</option>
-                            <option value="Tononoka">Tononoka</option>
-                            <option value="MM Integrated Steel">MM Integrated Steel</option>
-                            <option value="SABA Steel">SABA Steel</option>
-                            <option value="Nyingine">Nyingine</option>
+                            <option value="">Viwanda Vyote</option>
+                            <option value="Alaf">Alaf</option>
+                            <option value="Sunshare">Sunshare</option>
+                            <option value="Sunbank">Sunbank</option>
+                            <option value="Dragon">Dragon</option>
+                            <option value="Taishan">Taishan</option>
+                            <option value="Trust Raw Materials">Trust Raw Materials</option>
+                            <option value="Bigtembo">Bigtembo</option>
+                            <option value="Asia Pacific Ceramic">Asia Pacific Ceramic</option>
+                            <option value="Lodhia Mabati">Lodhia Mabati</option>
+                            <option value="Bati Bomba">Bati Bomba</option>
+                            <option value="Nanzighe Mabati">Nanzighe Mabati</option>
+                            <option value="Agent Buguruni">Agent Buguruni</option>
                         </select>
                     </div>
                     <div class="col-sm-6 col-lg-2">
@@ -611,17 +651,21 @@
                                 </select>
                             </div>
                             <div class="col-md-4">
-                                <label class="form-label fw-semibold small">Kampuni</label>
+                                <label class="form-label fw-semibold small">Kiwanda</label>
                                 <select class="form-select" id="prodCompany">
                                     <option value="">-- Chagua --</option>
-                                    <option value="ALAF">ALAF</option>
-                                    <option value="Maisha Mabati">Maisha Mabati</option>
-                                    <option value="Tembo Steel">Tembo Steel</option>
-                                    <option value="Simba Mabati">Simba Mabati</option>
-                                    <option value="Tononoka">Tononoka</option>
-                                    <option value="MM Integrated Steel">MM Integrated Steel</option>
-                                    <option value="SABA Steel">SABA Steel</option>
-                                    <option value="Nyingine">Nyingine</option>
+                                    <option value="Alaf">Alaf</option>
+                                    <option value="Sunshare">Sunshare</option>
+                                    <option value="Sunbank">Sunbank</option>
+                                    <option value="Dragon">Dragon</option>
+                                    <option value="Taishan">Taishan</option>
+                                    <option value="Trust Raw Materials">Trust Raw Materials</option>
+                                    <option value="Bigtembo">Bigtembo</option>
+                                    <option value="Asia Pacific Ceramic">Asia Pacific Ceramic</option>
+                                    <option value="Lodhia Mabati">Lodhia Mabati</option>
+                                    <option value="Bati Bomba">Bati Bomba</option>
+                                    <option value="Nanzighe Mabati">Nanzighe Mabati</option>
+                                    <option value="Agent Buguruni">Agent Buguruni</option>
                                 </select>
                             </div>
                             <div class="col-md-4">
@@ -683,8 +727,8 @@
                             </div>
                             <div class="col-12">
                                 <label class="form-label fw-semibold small">Picha (max 5)</label>
-                                <input type="file" class="form-control" id="prodImageFile" accept="image/*" capture="environment" multiple />
-                                <small class="text-muted">Chagua picha 1 hadi 5 kutoka kwenye gallery au piga picha kwa kamera.</small>
+                                <input type="file" class="form-control" id="prodImageFile" accept="image/*" multiple />
+                                <small class="text-muted">Chagua picha 1 hadi 5 kutoka kwenye gallery, files, au piga picha kwa kamera.</small>
                                 <div id="imagePreviewContainer" class="image-preview-container"></div>
                             </div>
                         </div>
@@ -863,15 +907,7 @@
         console.warn('⚠️ Offline persistence:', err.code);
     });
 
-    // ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
-    // ADMIN DOCUMENT ID
-    // Path: /users/yCu1zHr7Ttim47OqudgN
-    // ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
     const ADMIN_DOC_ID = 'yCu1zHr7Ttim47OqudgN';
-
-    // ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
-    // LOCAL STORAGE CACHE
-    // ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
     const DB_KEY = 'mabatiZoneDB';
 
     function getDB() {
@@ -888,9 +924,6 @@
         localStorage.setItem(DB_KEY, JSON.stringify(db));
     }
 
-    // ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
-    // CONNECTION STATUS UI
-    // ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
     function setConnStatus(status, text) {
         const el1 = document.getElementById('connStatus');
         const el2 = document.getElementById('connStatusHeader');
@@ -908,26 +941,12 @@
         });
     }
 
-    // ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
-    // FIRESTORE TEST
-    // ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
     async function testFirestoreConnection() {
         setConnStatus('syncing', 'Inajaribu...');
         try {
-            console.log('%c🔍 Inajaribu Firestore...', 'color:#1a7fc1; font-weight:bold');
-
             const adminDoc = await firestore.collection('users').doc(ADMIN_DOC_ID).get({ source: 'server' });
-            if (adminDoc.exists) {
-                console.log('%c✅ Admin document imepatikana:', 'color:#22c55e; font-weight:bold', adminDoc.data());
-            } else {
-                console.log('%c⚠️ Admin document haipo: /users/' + ADMIN_DOC_ID, 'color:#f59e0b');
-            }
-
             const usersSnap = await firestore.collection('users').get({ source: 'server' });
-            console.log('%c✅ Users collection:', 'color:#22c55e', usersSnap.size);
-
             const productsSnap = await firestore.collection('products').get({ source: 'server' });
-            console.log('%c✅ Products collection:', 'color:#22c55e', productsSnap.size);
 
             setConnStatus('online', 'Muunganisho ni mzuri');
             alert(
@@ -937,19 +956,14 @@
                 'Products: ' + productsSnap.size + ' documents'
             );
         } catch (e) {
-            console.error('❌ Firestore test failed:', e);
             setConnStatus('offline', 'Muunganisho umeshindikana');
             alert('❌ Muunganisho umeshindikana!\n\nError: ' + e.message);
         }
     }
 
-    // ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
-    // FIRESTORE SYNC FUNCTIONS
-    // ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
     async function loadUsersFromFirestore() {
         try {
             setConnStatus('syncing', 'Inapakua watumiaji...');
-            console.log('%c📥 Inapakua users...', 'color:#1a7fc1');
             const snap = await firestore.collection('users').get({ source: 'server' });
             if (!snap.empty) {
                 const users = snap.docs.map(d => ({ uid: d.id, ...d.data() }));
@@ -957,12 +971,10 @@
                 db.users = users;
                 saveDB(db);
                 setConnStatus('online');
-                console.log('%c✅ Users:', 'color:#22c55e; font-weight:bold', users.length);
                 return users;
             }
             setConnStatus('online', 'Users ni tupu');
         } catch (e) {
-            console.warn('%c⚠️ Firestore users load failed:', 'color:#ef4444', e.message);
             setConnStatus('offline', 'Inatumia cache');
         }
         return getDB().users || [];
@@ -971,7 +983,6 @@
     async function loadProductsFromFirestore() {
         try {
             setConnStatus('syncing', 'Inapakua bidhaa...');
-            console.log('%c📥 Inapakua products...', 'color:#1a7fc1');
             const snap = await firestore.collection('products').get({ source: 'server' });
             if (!snap.empty) {
                 const products = snap.docs.map(d => ({ id: d.id, ...d.data() }));
@@ -979,12 +990,10 @@
                 db.products = products;
                 saveDB(db);
                 setConnStatus('online');
-                console.log('%c✅ Products:', 'color:#22c55e; font-weight:bold', products.length);
                 return products;
             }
             setConnStatus('online', 'Products ni tupu');
         } catch (e) {
-            console.warn('%c⚠️ Firestore products load failed:', 'color:#ef4444', e.message);
             setConnStatus('offline', 'Inatumia cache');
         }
         return getDB().products || [];
@@ -998,11 +1007,9 @@
                 if (data[k] !== undefined) clean[k] = data[k];
             });
             await firestore.collection('products').doc(id).set(clean);
-            console.log('✅ Product saved:', id);
             setConnStatus('online', 'Imehifadhiwa');
             return true;
         } catch (e) {
-            console.error('❌ Firestore product save failed:', e);
             setConnStatus('offline', 'Hifadhi imeshindikana');
             return false;
         }
@@ -1011,10 +1018,8 @@
     async function deleteProductFromFirestore(productId) {
         try {
             await firestore.collection('products').doc(productId).delete();
-            console.log('✅ Product deleted:', productId);
             return true;
         } catch (e) {
-            console.error('❌ Firestore product delete failed:', e);
             return false;
         }
     }
@@ -1029,7 +1034,6 @@
             await firestore.collection('users').doc(uid).set(clean);
             return true;
         } catch (e) {
-            console.error('❌ Firestore user save failed:', e);
             return false;
         }
     }
@@ -1039,7 +1043,6 @@
             await firestore.collection('users').doc(uid).delete();
             return true;
         } catch (e) {
-            console.error('❌ Firestore user delete failed:', e);
             return false;
         }
     }
@@ -1056,7 +1059,6 @@
                 role: 'admin',
                 phone: '712000001'
             });
-            console.log('%c✅ Admin: /users/' + ADMIN_DOC_ID, 'color:#22c55e; font-weight:bold');
 
             await firestore.collection('users').doc('dealer1').set({
                 email: 'dealer@example.com',
@@ -1065,12 +1067,11 @@
                 role: 'dealer',
                 phone: '712345678'
             });
-            console.log('%c✅ Dealer: /users/dealer1', 'color:#22c55e');
 
             await firestore.collection('products').doc('p1').set({
-                title: 'Mabati Gofu 30 Gauge - ALAF',
+                title: 'Mabati Gofu 30 Gauge - Alaf',
                 category: 'Migongo Midogo (Corrugated)',
-                company: 'ALAF',
+                company: 'Alaf',
                 gauge: '30',
                 length: 3,
                 price: 38000,
@@ -1078,7 +1079,7 @@
                 color: 'Nyekundu',
                 condition: 'mpya',
                 region: 'Dar es Salaam',
-                description: 'Mabati gofu bora ya ALAF, 30 gauge, urefu wa mita 3.',
+                description: 'Mabati gofu bora ya Alaf, 30 gauge, urefu wa mita 3.',
                 images: [
                     'https://picsum.photos/seed/mabati1/800/600',
                     'https://picsum.photos/seed/mabati2/800/600'
@@ -1088,13 +1089,11 @@
                 featured: true,
                 sold: false
             });
-            console.log('%c✅ Product: /products/p1', 'color:#22c55e');
 
             setConnStatus('online', 'Data imepandwa!');
-            alert('✅ Data imepandwa!\n\n1. Admin: /users/' + ADMIN_DOC_ID + '\n2. Dealer: /users/dealer1\n3. Product: /products/p1');
+            alert('✅ Data imepandwa!');
             await syncFromFirestore(true);
         } catch (e) {
-            console.error('❌ Seed failed:', e);
             alert('❌ Imeshindikana: ' + e.message);
             setConnStatus('offline');
         }
@@ -1122,17 +1121,11 @@
         location.reload();
     }
 
-    // ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
-    // APP STATE
-    // ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
     let currentUser = null;
     let selectedRole = 'admin';
     let currentPage = 'dashboard';
     let catFilterList = [];
 
-    // ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
-    // HELPERS
-    // ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
     function formatCurrency(amount) {
         return 'TSh ' + Number(amount || 0).toLocaleString('en-US');
     }
@@ -1141,9 +1134,6 @@
         return 'p_' + Date.now() + '_' + Math.random().toString(36).substr(2, 6);
     }
 
-    // ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
-    // ROOF TYPES
-    // ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
     function getSelectedRoofTypes() {
         return Array.from(document.querySelectorAll('.roof-type-check:checked')).map(cb => cb.value);
     }
@@ -1186,9 +1176,6 @@
         renderListings();
     }
 
-    // ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
-    // SET ROLE (Bila auto-fill - admin ataandika mwenyewe)
-    // ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
     function setRole(role) {
         selectedRole = role;
         document.querySelectorAll('.role-toggle .btn').forEach(b => b.classList.toggle('active', b.dataset.role === role));
@@ -1222,9 +1209,6 @@
         }
     }
 
-    // ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
-    // LOGIN
-    // ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
     async function handleLogin(e) {
         e.preventDefault();
         const btn = document.getElementById('loginBtn');
@@ -1251,51 +1235,43 @@
         const password = document.getElementById('loginPassword').value.trim();
 
         setConnStatus('syncing', 'Inathibitisha...');
-        console.log('%c🔐 Kuingia:', 'color:#1a7fc1; font-weight:bold', username);
 
         let user = null;
 
         try {
-            console.log('%c📥 Inasoma /users/' + ADMIN_DOC_ID + ' direct...', 'color:#f59e0b');
             const adminSnap = await firestore.collection('users').doc(ADMIN_DOC_ID).get({ source: 'server' });
             if (adminSnap.exists) {
                 const adminData = adminSnap.data();
-                console.log('%c✅ Doc imepatikana. Data:', 'color:#22c55e', adminData);
                 if (adminData.email === username && adminData.password === password) {
                     user = { uid: ADMIN_DOC_ID, ...adminData };
-                    console.log('%c✅ Amethibitishwa kwa admin doc!', 'color:#22c55e; font-weight:bold');
                 }
             }
         } catch (err) {
-            console.warn('%c⚠️ Direct read failed:', 'color:#f59e0b', err.message);
+            console.warn('Direct read failed:', err.message);
         }
 
         if (!user) {
-            console.log('%c📥 Inatafuta kwenye collection yote...', 'color:#f59e0b');
             try {
                 const snap = await firestore.collection('users').where('email', '==', username).get({ source: 'server' });
                 if (!snap.empty) {
                     const doc = snap.docs[0];
                     const data = doc.data();
-                    console.log('   Doc ID:', doc.id, '| Data:', data);
                     if (data.password === password) {
                         user = { uid: doc.id, ...data };
-                        console.log('%c✅ Amepatikana kwa query!', 'color:#22c55e; font-weight:bold');
                     }
                 }
             } catch (err) {
-                console.warn('%c⚠️ Query failed:', 'color:#f59e0b', err.message);
+                console.warn('Query failed:', err.message);
             }
         }
 
         if (!user) {
             const db = getDB();
             user = db.users.find(u => u.email === username && u.password === password);
-            if (user) console.log('%c✅ Amepatikana kwenye cache!', 'color:#22c55e');
         }
 
         if (!user) {
-            alert('❌ Barua pepe au neno siri si sahihi.\n\n⚠️ ANGALIA CONSOLE (F12) kuona maelezo.');
+            alert('❌ Barua pepe au neno siri si sahihi.');
             setConnStatus('offline', 'Kuingia kimeshindikana');
             btn.disabled = false;
             btn.innerHTML = '🔐 Ingia';
@@ -1696,7 +1672,7 @@
                 <div class="mt-4">
                     <div class="row g-2">
                         <div class="col-6 col-md-4"><strong>Aina:</strong> ${p.category || '-'}</div>
-                        <div class="col-6 col-md-4"><strong>Kampuni:</strong> ${p.company || '-'}</div>
+                        <div class="col-6 col-md-4"><strong>Kiwanda:</strong> ${p.company || '-'}</div>
                         <div class="col-6 col-md-4"><strong>Gauge:</strong> ${p.gauge || '-'}</div>
                         <div class="col-12 col-md-4"><strong>Bei:</strong> ${formatCurrency(p.price)} <small class="text-muted">${p.unit || ''}</small></div>
                         <div class="col-6 col-md-4"><strong>Urefu:</strong> ${p.length ? p.length + ' m' : '-'}</div>
@@ -1981,42 +1957,25 @@
     // ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
     document.getElementById('loginPage').style.display = 'flex';
     document.getElementById('mainContent').style.display = 'none';
-
-    // Weka role kuwa admin mwanzo (bila auto-fill)
     setRole('admin');
-
     updateRoofTypeSelection();
     setConnStatus('syncing', 'Inaunganisha na Firestore...');
 
     (async () => {
         try {
-            console.log('%c🔥 Inajaribu kuunganisha na Firestore...', 'color:#f59e0b; font-weight:bold');
-            console.log('%c   Project: mabati-zone', 'color:#64748b');
-            console.log('%c   Admin Doc: /users/' + ADMIN_DOC_ID, 'color:#64748b');
-
             const adminDoc = await firestore.collection('users').doc(ADMIN_DOC_ID).get({ source: 'server' });
             if (adminDoc.exists) {
-                console.log('%c✅ Firestore imeunganishwa! Admin doc imepatikana.', 'color:#22c55e; font-weight:bold');
-                console.log('   Data:', adminDoc.data());
                 setConnStatus('online', 'Firestore iko tayari');
             } else {
-                console.log('%c⚠️ Admin doc haipo kwenye /users/' + ADMIN_DOC_ID, 'color:#f59e0b; font-weight:bold');
                 setConnStatus('online', 'Firestore iko tayari (tupu)');
             }
         } catch (e) {
-            console.warn('%c❌ Firestore connection failed:', 'color:#ef4444; font-weight:bold', e.message);
             setConnStatus('offline', 'Firestore haipatikani');
         }
     })();
 
-    console.log('%c🏠 Mabati Zone Tanzania', 'font-size:16px; font-weight:bold; color:#1a7fc1');
-    console.log('%c"Ubora wa kuaminika zaidi"', 'font-style:italic; color:#64748b');
-    console.log('%c🔥 Firestore: mabati-zone', 'color:#f59e0b; font-weight:bold');
-    console.log('%c🔑 Admin Doc ID: ' + ADMIN_DOC_ID, 'color:#8b5cf6; font-weight:bold');
-    console.log('%c👤 Admin lazima aandike barua pepe na neno la siri mwenyewe.', 'color:#f59e0b; font-weight:bold');
-    console.log('🏢 Muuzaji: dealer@example.com / dealer123');
-    console.log('👤 Mteja  : Bonyeza "Mteja" na "Ingia" bila password.');
-    console.log('%c💡 Tip: Fungua Console (F12) kuona logs za Firestore', 'color:#64748b; font-style:italic');
+    console.log('🏠 Mabati Zone Tanzania — "Ubora wa kuaminika zaidi" umeanza!');
+    console.log('✅ Viwanda 12 vimewekwa kwenye dropdowns zote.');
     </script>
 
 </body>
