@@ -46,9 +46,8 @@
         .login-card .form-control:focus { border-color: var(--primary); box-shadow: 0 0 0 4px rgba(26,127,193,0.12); }
         .login-card .btn-primary { background: var(--primary); border: none; border-radius: 10px; padding: 12px; font-weight: 600; font-size: 15px; transition: 0.2s; width: 100%; }
         .login-card .btn-primary:hover { background: var(--primary-dark); transform: translateY(-2px); box-shadow: 0 8px 24px rgba(26,127,193,0.3); }
-        .login-card .role-toggle .btn { border-radius: 10px; padding: 8px 14px; font-size: 13px; font-weight: 500; border: 1.5px solid #e2e8f0; transition: 0.2s; }
-        .login-card .role-toggle .btn.active { background: var(--primary); color: #fff; border-color: var(--primary); }
-        .login-card .buyer-hint { font-size: 13px; color: #64748b; text-align: center; margin-bottom: 0; padding: 6px 12px; background: #f1f5f9; border-radius: 8px; }
+        .login-card .buyer-welcome { font-size: 13px; color: #075985; text-align: center; padding: 12px 14px; background: #e0f2fe; border-radius: 10px; border: 1px dashed var(--primary); line-height: 1.5; }
+        .login-card .buyer-welcome i { font-size: 18px; color: var(--primary); display: block; margin-bottom: 4px; }
 
         .sidebar { position: fixed; top: 0; left: 0; bottom: 0; width: var(--sidebar-width); background: #0b1f33; color: #e2e8f0; padding: 0; overflow-y: auto; z-index: 1050; transition: transform 0.3s ease; display: flex; flex-direction: column; }
         .sidebar .brand { padding: 14px 16px; border-bottom: 1px solid rgba(255,255,255,0.06); display: flex; align-items: center; gap: 10px; }
@@ -71,11 +70,54 @@
         .header { height: var(--header-height); padding: 0 32px; display: flex; align-items: center; justify-content: space-between; position: sticky; top: 0; z-index: 1040; background: rgba(255,255,255,0.92); backdrop-filter: blur(8px); border-bottom: 1px solid #e2e8f0; }
         .header .toggle-sidebar { background: none; border: none; font-size: 24px; color: #475569; display: none; cursor: pointer; }
         .header .page-title { font-weight: 600; font-size: 18px; color: #0f172a; }
-        .header .user-info { display: flex; align-items: center; gap: 16px; }
+        .header .user-info { display: flex; align-items: center; gap: 12px; }
         .header .user-info .avatar { width: 38px; height: 38px; border-radius: 50%; background: var(--primary-light); color: var(--primary); display: flex; align-items: center; justify-content: center; font-weight: 700; font-size: 16px; }
         .change-pwd-btn { background: none; border: 1px solid #e2e8f0; border-radius: 8px; padding: 6px 14px; font-size: 13px; color: #475569; transition: 0.2s; cursor: pointer; }
         .change-pwd-btn:hover { background: var(--primary-light); border-color: var(--primary); color: var(--primary); }
         .content { padding: 28px 32px; }
+
+        /* ═══ ADMIN ENTRY BUTTON (karibu na "Firebase tayari") ═══ */
+        .admin-entry-btn {
+            background: #fff;
+            border: 1.5px solid #e2e8f0;
+            color: #475569;
+            border-radius: 8px;
+            padding: 6px 12px;
+            font-size: 12px;
+            font-weight: 600;
+            display: inline-flex;
+            align-items: center;
+            gap: 5px;
+            cursor: pointer;
+            transition: 0.2s;
+            white-space: nowrap;
+        }
+        .admin-entry-btn:hover {
+            border-color: var(--primary);
+            color: var(--primary);
+            background: var(--primary-light);
+            transform: translateY(-1px);
+            box-shadow: 0 4px 12px rgba(26,127,193,0.18);
+        }
+        .admin-entry-btn i { font-size: 14px; }
+
+        .admin-badge {
+            background: #e0f2fe;
+            color: #075985;
+            border: 1.5px solid #7dd3fc;
+            border-radius: 8px;
+            padding: 6px 12px;
+            font-size: 12px;
+            font-weight: 700;
+            display: inline-flex;
+            align-items: center;
+            gap: 5px;
+            white-space: nowrap;
+        }
+
+        #adminLoginModal .form-control { border-radius: 10px; padding: 11px 14px; border: 1.5px solid #e2e8f0; font-size: 14px; }
+        #adminLoginModal .form-control:focus { border-color: var(--primary); box-shadow: 0 0 0 4px rgba(26,127,193,0.12); }
+        #adminLoginModal .form-label { font-weight: 600; font-size: 13px; color: #334155; }
 
         .dashboard-banner { background: #fff; border-radius: var(--radius); box-shadow: var(--shadow); border: 1px solid #f1f5f9; overflow: hidden; transition: 0.25s ease; }
         .dashboard-banner:hover { transform: translateY(-4px); box-shadow: 0 8px 24px rgba(0,0,0,0.08); }
@@ -102,6 +144,14 @@
         .car-card .car-body .car-price small { font-weight: 500; font-size: 12px; color: #64748b; }
         .car-card .car-body .car-details { font-size: 13px; color: #64748b; }
         .car-card .car-body .car-actions { margin-top: 12px; display: flex; gap: 8px; flex-wrap: wrap; }
+
+        .admin-user-card { display: flex; align-items: center; justify-content: space-between; padding: 16px; border: 1px solid #f1f5f9; border-radius: var(--radius); background: #fff; transition: 0.2s; }
+        .admin-user-card:hover { background: #f8fafc; border-color: #e2e8f0; }
+        .admin-user-card .avatar-circle { width: 44px; height: 44px; border-radius: 50%; background: var(--primary-light); color: var(--primary); display: flex; align-items: center; justify-content: center; font-weight: 700; font-size: 18px; flex-shrink: 0; }
+        .admin-product-row { display: flex; align-items: center; gap: 12px; padding: 12px; border: 1px solid #f1f5f9; border-radius: var(--radius); background: #fff; }
+        .admin-product-row:hover { background: #f8fafc; }
+        .admin-product-row .prod-img { width: 60px; height: 60px; border-radius: 8px; overflow: hidden; background: #e5e7eb; display: flex; align-items: center; justify-content: center; flex-shrink: 0; }
+        .admin-product-row .prod-img img { width: 100%; height: 100%; object-fit: cover; }
 
         .modal-content { border-radius: 16px; border: none; box-shadow: 0 24px 64px rgba(0,0,0,0.12); }
         .modal-header { border-bottom: 1px solid #f1f5f9; padding: 20px 24px; }
@@ -165,12 +215,11 @@
         .youtube-contact-card .phone { color: #cc0000; }
         .youtube-contact-card .phone i { color: #cc0000; }
 
-        .conn-status { font-size: 11px; padding: 3px 10px; border-radius: 20px; font-weight: 600; }
-        .conn-status.online { background: #d1fae5; color: #065f46; }
-        .conn-status.offline { background: #fee2e2; color: #991b1b; }
-        .conn-status.syncing { background: #fef3c7; color: #92400e; }
+        .conn-status { font-size: 11px; padding: 4px 12px; border-radius: 20px; font-weight: 600; display: inline-flex; align-items: center; gap: 4px; }
+        .conn-status.online { background: #d1fae5; color: #065f46; border: 1px solid #a7f3d0; }
+        .conn-status.offline { background: #fee2e2; color: #991b1b; border: 1px solid #fca5a5; }
+        .conn-status.syncing { background: #fef3c7; color: #92400e; border: 1px solid #fcd34d; }
 
-        /* Social Media Links Styles */
         .social-link { 
             font-size: 24px; 
             transition: all 0.3s ease; 
@@ -194,7 +243,6 @@
         .social-link.instagram { color: #E4405F; }
         .social-link.instagram:hover { background: #E4405F; color: #fff; }
 
-        /* Offer Card Styles */
         .offer-card { background: #fff; border-radius: var(--radius); box-shadow: var(--shadow); border: 1px solid #f1f5f9; padding: 16px 20px; transition: 0.25s ease; display: flex; align-items: center; gap: 16px; height: 100%; }
         .offer-card:hover { transform: translateY(-2px); box-shadow: 0 4px 16px rgba(0,0,0,0.06); }
         .offer-card .offer-icon { font-size: 24px; color: var(--primary); flex-shrink: 0; width: 40px; height: 40px; background: var(--primary-light); border-radius: 10px; display: flex; align-items: center; justify-content: center; }
@@ -220,12 +268,14 @@
             .stat-mini .stat-number { font-size: 18px; }
             .logo-mark { max-width: 200px; }
             .brand-logo { width: 72px; height: 38px; }
+            .admin-entry-btn span, .admin-badge span { display: none; }
+            .admin-entry-btn, .admin-badge { padding: 6px 9px; }
         }
     </style>
 </head>
 <body>
 
-    <!-- ============ LOGIN ============ -->
+    <!-- ============ LOGIN (MTEJA PEKE YAKE) ============ -->
     <div id="loginPage" class="login-wrapper">
         <div class="login-card">
             <div class="logo">
@@ -240,26 +290,15 @@
             </div>
 
             <form id="loginForm" onsubmit="return handleLogin(event)">
-                <div class="mb-3" id="loginFieldsWrapper">
-                    <label class="form-label fw-semibold" id="loginLabel">Barua pepe</label>
-                    <input type="text" class="form-control" id="loginUsername" placeholder="Weka barua pepe" required />
-                </div>
-                <div class="mb-3" id="passwordWrapper">
-                    <label class="form-label fw-semibold">Neno la Siri</label>
-                    <input type="password" class="form-control" id="loginPassword" placeholder="Weka neno siri" required />
+                <div class="buyer-welcome mb-4">
+                    <i class="bi bi-info-circle-fill"></i>
+                    <strong>Karibu Mabati Zone!</strong><br>
+                    Bonyeza kitufe hapa chini kuingia. Huhitaji barua pepe wala neno la siri.
                 </div>
 
-                <div class="mb-4 role-toggle d-flex gap-2 justify-content-center flex-wrap">
-                    <button type="button" class="btn active" data-role="admin" onclick="setRole('admin')">👨‍💼 Admin</button>
-                    <button type="button" class="btn" data-role="dealer" onclick="setRole('dealer')">🏢 Muuzaji</button>
-                    <button type="button" class="btn" data-role="buyer" onclick="setRole('buyer')">👤 Mteja</button>
-                </div>
-
-                <div id="buyerHint" class="buyer-hint mb-3" style="display:none;">
-                    <i class="bi bi-info-circle me-1"></i>Mteja hauitaji barua pepe wala neno la siri. Bonyeza tu "Ingia".
-                </div>
-
-                <button type="submit" class="btn btn-primary" id="loginBtn">🔐 Ingia</button>
+                <button type="submit" class="btn btn-primary" id="loginBtn">
+                    <i class="bi bi-box-arrow-in-right me-1"></i> Ingia kama Mteja
+                </button>
                 
                 <!-- ============ SOCIAL MEDIA LINKS ============ -->
                 <div class="text-center mt-4 pt-3 border-top">
@@ -288,7 +327,7 @@
             <img class="brand-logo" src="https://iili.io/naIvmWG.jpg" alt="Mabati Zone" />
             <div>
                 <span>Mabati Zone</span>
-                <small id="sidebarRoleLabel">TZ • Admin</small>
+                <small id="sidebarRoleLabel">TZ • Mteja</small>
             </div>
         </div>
 
@@ -299,11 +338,11 @@
             <a class="nav-link" data-page="calculator" onclick="navigate('calculator')"><i class="bi bi-calculator-fill"></i> Kikokotoo cha Mabati</a>
             <a class="nav-link" data-page="mawasiliano" onclick="navigate('mawasiliano')"><i class="bi bi-telephone-fill"></i> Mawasiliano</a>
             <a class="nav-link" data-page="mafundi" onclick="navigate('mafundi')"><i class="bi bi-tools"></i> Mafundi Wetu</a>
-            <a class="nav-link" data-page="mycars" onclick="navigate('mycars')"><i class="bi bi-box-seam-fill"></i> Bidhaa Zangu</a>
-            <a class="nav-link" data-page="addcar" onclick="navigate('addcar')"><i class="bi bi-plus-circle"></i> Ongeza Bidhaa</a>
+            <a class="nav-link admin-only" data-page="mycars" onclick="navigate('mycars')" style="display:none;"><i class="bi bi-box-seam-fill"></i> Bidhaa Zangu</a>
+            <a class="nav-link admin-only" data-page="addcar" onclick="navigate('addcar')" style="display:none;"><i class="bi bi-plus-circle"></i> Ongeza Bidhaa</a>
 
-            <div class="nav-label mt-3">Admin</div>
-            <a class="nav-link" data-page="admin" onclick="navigate('admin')"><i class="bi bi-shield-lock-fill"></i> Admin Panel</a>
+            <div class="nav-label mt-3 admin-only" id="adminNavLabel" style="display:none;">Admin</div>
+            <a class="nav-link admin-only" data-page="admin" onclick="navigate('admin')" style="display:none;"><i class="bi bi-shield-lock-fill"></i> Admin Panel</a>
         </nav>
 
         <a class="youtube-quick-btn" href="https://www.youtube.com/results?search_query=Mabati+Zone+Tanzania" target="_blank" rel="noopener">
@@ -325,10 +364,21 @@
                 <span class="page-title" id="pageTitle">Dashibodi</span>
             </div>
             <div class="user-info">
-                <span class="d-none d-sm-inline text-muted small" id="userRoleBadge">Admin</span>
-                <span id="connStatusHeader" class="d-none d-md-inline conn-status online"><i class="bi bi-cloud-check"></i> Sync</span>
-                <button class="change-pwd-btn" onclick="openChangePasswordModal()"><i class="bi bi-key"></i> Badilisha Neno</button>
-                <div class="avatar" id="userAvatar">A</div>
+                <span class="d-none d-sm-inline text-muted small" id="userRoleBadge">Mteja</span>
+
+                <!-- 🔐 KITUFE CHA ADMIN — kinapatikana ndani kwa mteja, karibu na "Firebase tayari" -->
+                <button class="admin-entry-btn" id="adminEntryBtn" onclick="openAdminLoginModal()" title="Ingia kama Admin">
+                    <i class="bi bi-shield-lock"></i> <span>Admin</span>
+                </button>
+
+                <!-- 🟢 Badge inaonekana tu kama Admin ameingia -->
+                <span class="admin-badge" id="adminBadge" style="display:none;">
+                    <i class="bi bi-patch-check-fill"></i> <span>Admin</span>
+                </span>
+
+                <span id="connStatusHeader" class="conn-status online"><i class="bi bi-cloud-check"></i> Firebase tayari</span>
+                <button class="change-pwd-btn admin-only" id="changePwdBtn" onclick="openChangePasswordModal()" style="display:none;"><i class="bi bi-key"></i> Badilisha Neno</button>
+                <div class="avatar" id="userAvatar">T</div>
             </div>
         </header>
 
@@ -336,7 +386,7 @@
 
             <section id="page-dashboard" class="page-section active">
                 <div class="mb-4">
-                    <h5 class="fw-bold">Karibu tena, <span id="dashboardUserName">Admin</span> 👋</h5>
+                    <h5 class="fw-bold">Karibu tena, <span id="dashboardUserName">Mteja</span> 👋</h5>
                     <p class="text-muted small">Karibu Mabati Zone Tanzania — "Ubora wa kuaminika zaidi".</p>
                 </div>
 
@@ -346,7 +396,6 @@
                     </div>
                 </div>
 
-                <!-- ============ TANGAZO LA OFFER ZETU KWENYE DASHIBODI ============ -->
                 <div class="row g-3 mt-3">
                     <div class="col-12">
                         <div class="alert alert-primary d-flex align-items-center shadow-sm" role="alert" style="border-radius: var(--radius); border-left: 5px solid var(--primary-dark);">
@@ -358,7 +407,6 @@
                         </div>
                     </div>
                 </div>
-                <!-- ================================================================================== -->
 
                 <div class="row g-3 mt-2">
                     <div class="col-6 col-md-3" id="stat-col-cars">
@@ -503,9 +551,7 @@
                             <option value="Nanzighe Mabati">Nanzighe Mabati</option>
                             <option value="Agent Buguruni">Agent Buguruni</option>
                             <option value="Kiboko">Kiboko</option>
-                            <!-- ============ KIWANDA KIPYA (BOMAXON) ============ -->
                             <option value="Bomaxon Manufacturing company limited">Bomaxon Manufacturing company limited</option>
-                            <!-- ================================================== -->
                         </select>
                     </div>
                     <div class="col-sm-6 col-lg-2">
@@ -636,7 +682,6 @@
                     </p>
                 </div>
 
-                <!-- ============ SEHEMU YA OFFER ZETU ============ -->
                 <div class="mt-5">
                     <h5 class="fw-bold mb-4"><i class="bi bi-gift-fill me-2 text-primary-custom"></i>Offer Zetu</h5>
                     <div class="row g-3">
@@ -678,58 +723,49 @@
                         </div>
                     </div>
                 </div>
-                <!-- =================================================================== -->
             </section>
 
-            <!-- ============ SEHEMU YA MAFUNDI WETU ============ -->
             <section id="page-mafundi" class="page-section">
                 <h5 class="fw-bold mb-4"><i class="bi bi-tools me-2 text-primary-custom"></i>Mafundi Wetu</h5>
                 <p class="text-muted small mb-4">Tunao mafundi wa kitaalamu wa kufunga mabati katika mikoa mbalimbali.</p>
                 
                 <div class="row g-4">
-                    <!-- Dar es Salaam -->
                     <div class="col-md-6 col-lg-4">
                         <div class="contact-card text-center">
                             <div class="region"><i class="bi bi-geo-alt-fill me-1"></i> Dar es Salaam</div>
                             <div class="phone mt-2"><i class="bi bi-person-badge"></i> Mafundi Wapo</div>
                         </div>
                     </div>
-                    <!-- Arusha -->
                     <div class="col-md-6 col-lg-4">
                         <div class="contact-card text-center">
                             <div class="region"><i class="bi bi-geo-alt-fill me-1"></i> Arusha</div>
                             <div class="phone mt-2"><i class="bi bi-person-badge"></i> Mafundi Wapo</div>
                         </div>
                     </div>
-                    <!-- Mbeya -->
                     <div class="col-md-6 col-lg-4">
                         <div class="contact-card text-center">
                             <div class="region"><i class="bi bi-geo-alt-fill me-1"></i> Mbeya</div>
                             <div class="phone mt-2"><i class="bi bi-person-badge"></i> Mafundi Wapo</div>
                         </div>
                     </div>
-                    <!-- Mwanza -->
                     <div class="col-md-6 col-lg-4">
                         <div class="contact-card text-center">
                             <div class="region"><i class="bi bi-geo-alt-fill me-1"></i> Mwanza</div>
                             <div class="phone mt-2"><i class="bi bi-person-badge"></i> Mafundi Wapo</div>
                         </div>
                     </div>
-                    <!-- Dodoma -->
                     <div class="col-md-6 col-lg-4">
                         <div class="contact-card text-center">
                             <div class="region"><i class="bi bi-geo-alt-fill me-1"></i> Dodoma</div>
                             <div class="phone mt-2"><i class="bi bi-person-badge"></i> Mafundi Wapo</div>
                         </div>
                     </div>
-                    <!-- Tanga -->
                     <div class="col-md-6 col-lg-4">
                         <div class="contact-card text-center">
                             <div class="region"><i class="bi bi-geo-alt-fill me-1"></i> Tanga</div>
                             <div class="phone mt-2"><i class="bi bi-person-badge"></i> Mafundi Wapo</div>
                         </div>
                     </div>
-                    <!-- Kahama -->
                     <div class="col-md-6 col-lg-4">
                         <div class="contact-card text-center">
                             <div class="region"><i class="bi bi-geo-alt-fill me-1"></i> Kahama</div>
@@ -738,7 +774,6 @@
                     </div>
                 </div>
             </section>
-            <!-- =================================================== -->
 
             <section id="page-mycars" class="page-section">
                 <div class="d-flex flex-wrap align-items-center justify-content-between mb-4">
@@ -798,9 +833,7 @@
                                     <option value="Nanzighe Mabati">Nanzighe Mabati</option>
                                     <option value="Agent Buguruni">Agent Buguruni</option>
                                     <option value="Kiboko">Kiboko</option>
-                                    <!-- ============ KIWANDA KIPYA (BOMAXON) ============ -->
                                     <option value="Bomaxon Manufacturing company limited">Bomaxon Manufacturing company limited</option>
-                                    <!-- ================================================== -->
                                 </select>
                             </div>
                             <div class="col-md-4">
@@ -887,73 +920,70 @@
 
                 <div class="row g-4">
                     <div class="col-lg-6">
-                        <div class="table-wrap">
-                            <div class="table-header">
-                                <h6>👤 Watumiaji</h6>
-                                <span class="badge bg-soft-primary text-primary-custom" id="adminUserCount">0</span>
+                        <div class="calc-box h-100">
+                            <div class="d-flex justify-content-between align-items-center mb-3 border-bottom pb-2">
+                                <h6 class="fw-bold mb-0"><i class="bi bi-people-fill me-2 text-primary"></i>Watumiaji</h6>
+                                <span class="badge bg-primary rounded-pill" id="adminUserCount">0</span>
                             </div>
-                            <table class="table">
-                                <thead><tr><th>Jina</th><th>Barua pepe</th><th>Jukumu</th><th>Vitendo</th></tr></thead>
-                                <tbody id="adminUsersTable"></tbody>
-                            </table>
+                            <div id="adminUsersList" class="d-flex flex-column gap-3" style="max-height: 500px; overflow-y: auto;"></div>
                         </div>
                     </div>
-                    <div class="col-lg-6">
-                        <div class="table-wrap">
-                            <div class="table-header">
-                                <h6>🏠 Bidhaa Zote</h6>
-                                <span class="badge bg-soft-primary text-primary-custom" id="adminProductCount">0</span>
-                            </div>
-                            <table class="table">
-                                <thead><tr><th>Bidhaa</th><th>Bei</th><th>Muuzaji</th><th>Vitendo</th></tr></thead>
-                                <tbody id="adminListingsTable"></tbody>
-                            </table>
-                        </div>
-                    </div>
-                </div>
 
-                <div class="row g-4 mt-3">
-                    <div class="col-12">
-                        <div class="table-wrap">
-                            <div class="table-header">
-                                <h6>🔥 Hali ya Firestore</h6>
-                                <span id="firestoreStatus" class="conn-status online">Inaunganisha...</span>
+                    <div class="col-lg-6">
+                        <div class="calc-box h-100">
+                            <div class="d-flex justify-content-between align-items-center mb-3 border-bottom pb-2">
+                                <h6 class="fw-bold mb-0"><i class="bi bi-box-seam-fill me-2 text-success"></i>Bidhaa Zote</h6>
+                                <span class="badge bg-success rounded-pill" id="adminProductCount">0</span>
                             </div>
-                            <div class="p-3">
-                                <p class="small mb-2">
-                                    <strong>Collections:</strong>
-                                    <span class="badge bg-primary">users</span>
-                                    <span class="badge bg-success">products</span>
-                                </p>
-                                <p class="small text-muted mb-2">
-                                    <strong>Project:</strong> mabati-zone<br>
-                                    <strong>Admin Doc ID:</strong> <code>yCu1zHr7Ttim47OqudgN</code>
-                                </p>
-                                <div class="mb-2">
-                                    <button class="btn btn-primary btn-sm me-2" onclick="syncFromFirestore(true)">
-                                        <i class="bi bi-cloud-download me-1"></i> Pakua data mpya
-                                    </button>
-                                    <button class="btn btn-info btn-sm me-2 text-white" onclick="testFirestoreConnection()">
-                                        <i class="bi bi-wifi me-1"></i> Jaribu Muunganisho
-                                    </button>
-                                    <button class="btn btn-outline-warning btn-sm me-2" onclick="seedFirestore()">
-                                        <i class="bi bi-cloud-upload me-1"></i> Panda data ya kwanza
-                                    </button>
-                                    <button class="btn btn-outline-danger btn-sm" onclick="clearLocalCache()">
-                                        <i class="bi bi-trash me-1"></i> Safisha Cache
-                                    </button>
+                            <div id="adminListingsList" class="d-flex flex-column gap-3" style="max-height: 500px; overflow-y: auto;"></div>
+                        </div>
+                    </div>
+
+                    <div class="col-12 mt-4">
+                        <div class="calc-box">
+                            <div class="d-flex align-items-center justify-content-between mb-3 border-bottom pb-2">
+                                <h6 class="fw-bold mb-0"><i class="bi bi-fire me-2 text-danger"></i>Hali ya Firestore</h6>
+                                <span id="firestoreStatus" class="conn-status online"><i class="bi bi-cloud-check"></i> Firebase tayari</span>
+                            </div>
+                            <div class="row g-3">
+                                <div class="col-md-6">
+                                    <div class="p-3 bg-light rounded-3 border">
+                                        <strong>Collections:</strong><br>
+                                        <span class="badge bg-primary mt-1">users</span>
+                                        <span class="badge bg-success mt-1">products</span>
+                                    </div>
+                                </div>
+                                <div class="col-md-6">
+                                    <div class="p-3 bg-light rounded-3 border">
+                                        <strong>Project:</strong> mabati-zone<br>
+                                        <small class="text-muted">Admin Doc ID: <code>yCu1zHr7Ttim47OqudgN</code></small>
+                                    </div>
                                 </div>
                             </div>
+                            <div class="mt-3 d-flex flex-wrap gap-2">
+                                <button class="btn btn-primary btn-sm" onclick="syncFromFirestore(true)">
+                                    <i class="bi bi-cloud-download me-1"></i> Pakua data mpya
+                                </button>
+                                <button class="btn btn-info btn-sm text-white" onclick="testFirestoreConnection()">
+                                    <i class="bi bi-wifi me-1"></i> Jaribu Muunganisho
+                                </button>
+                                <button class="btn btn-outline-warning btn-sm" onclick="seedFirestore()">
+                                    <i class="bi bi-cloud-upload me-1"></i> Panda data ya kwanza
+                                </button>
+                                <button class="btn btn-outline-danger btn-sm" onclick="clearLocalCache()">
+                                    <i class="bi bi-trash me-1"></i> Safisha Cache
+                                </button>
+                            </div>
                         </div>
                     </div>
 
-                    <div class="col-12">
-                        <div class="table-wrap">
-                            <div class="table-header">
-                                <h6>💰 Malipo ya Featured (M-Pesa Sandbox)</h6>
+                    <div class="col-12 mt-4">
+                        <div class="calc-box">
+                            <div class="d-flex align-items-center justify-content-between mb-3 border-bottom pb-2">
+                                <h6 class="fw-bold mb-0"><i class="bi bi-coin me-2 text-warning"></i>Malipo ya Featured (M-Pesa Sandbox)</h6>
                             </div>
-                            <div class="p-3">
-                                <p class="small text-muted">Kwa sasa ni mfano wa sandbox. Endapo unataka bidhaa iwe featured, bonyeza "Featured" kwenye orodha ya bidhaa zako.</p>
+                            <div class="p-3 bg-light rounded-3 border">
+                                <p class="small text-muted mb-2">Kwa sasa ni mfano wa sandbox. Endapo unataka bidhaa iwe featured, bonyeza "Featured" kwenye orodha ya bidhaa zako.</p>
                                 <button class="btn btn-warning btn-sm" onclick="alert('Huu ni mfano wa M-Pesa sandbox. Katika mfumo halisi, ungeunganishwa na API ya M-Pesa.')">
                                     <i class="bi bi-phone me-1"></i> Jaribu M-Pesa Sandbox
                                 </button>
@@ -963,6 +993,45 @@
                 </div>
             </section>
 
+        </div>
+    </div>
+
+    <!-- ═══════════ ADMIN LOGIN MODAL (inaingia ndani kwa mteja) ═══════════ -->
+    <div class="modal fade" id="adminLoginModal" tabindex="-1">
+        <div class="modal-dialog modal-dialog-centered">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h6 class="modal-title fw-bold"><i class="bi bi-shield-lock-fill me-2 text-primary"></i>Kuingia kwa Admin</h6>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+                </div>
+                <div class="modal-body">
+                    <p class="small text-muted mb-3">Weka <strong>barua pepe</strong> na <strong>neno la siri</strong> la Admin ili kupata dashibodi yako.</p>
+
+                    <div id="adminLoginAlert" style="display:none;padding:10px 14px;border-radius:10px;font-size:13px;margin-bottom:12px;"></div>
+
+                    <div class="mb-3">
+                        <label class="form-label">Barua pepe</label>
+                        <input type="email" class="form-control" id="adminEmailInput" placeholder="mfano@gmail.com" autocomplete="email" />
+                    </div>
+                    <div class="mb-3">
+                        <label class="form-label">Neno la Siri</label>
+                        <input type="password" class="form-control" id="adminPasswordInput" placeholder="••••••"
+                               autocomplete="current-password"
+                               onkeydown="if(event.key==='Enter'){event.preventDefault();doAdminLoginFromApp();}" />
+                    </div>
+
+                    <div class="alert alert-light border small mb-0">
+                        <i class="bi bi-info-circle me-1 text-primary"></i>
+                      
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <button class="btn btn-secondary btn-sm" data-bs-dismiss="modal">Ghairi</button>
+                    <button class="btn btn-primary btn-sm" id="adminLoginSubmitBtn" onclick="doAdminLoginFromApp()">
+                        <i class="bi bi-box-arrow-in-right me-1"></i> Ingia
+                    </button>
+                </div>
+            </div>
         </div>
     </div>
 
@@ -1064,14 +1133,14 @@
         const el2 = document.getElementById('connStatusHeader');
         const el3 = document.getElementById('firestoreStatus');
         const map = {
-            online: { cls: 'online', icon: 'bi-cloud-check', text: text || 'Imeunganishwa' },
+            online: { cls: 'online', icon: 'bi-cloud-check', text: text || 'Firebase tayari' },
             offline: { cls: 'offline', icon: 'bi-cloud-slash', text: text || 'Nje ya mtandao' },
             syncing: { cls: 'syncing', icon: 'bi-cloud-arrow-down', text: text || 'Inasawazisha...' }
         };
         const s = map[status] || map.syncing;
         [el1, el2, el3].forEach(el => {
             if (!el) return;
-            el.className = 'conn-status ' + s.cls + (el === el2 ? ' d-none d-md-inline' : '');
+            el.className = 'conn-status ' + s.cls;
             el.innerHTML = '<i class="bi ' + s.icon + '"></i> ' + s.text;
         });
     }
@@ -1083,7 +1152,7 @@
             const usersSnap = await firestore.collection('users').get({ source: 'server' });
             const productsSnap = await firestore.collection('products').get({ source: 'server' });
 
-            setConnStatus('online', 'Muunganisho ni mzuri');
+            setConnStatus('online', 'Firebase tayari');
             alert(
                 '✅ Muunganisho wa Firestore ni mzuri!\n\n' +
                 'Admin Doc: ' + (adminDoc.exists ? '✅ Ipo' : '❌ Haipo') + '\n' +
@@ -1105,7 +1174,7 @@
                 const db = getDB();
                 db.users = users;
                 saveDB(db);
-                setConnStatus('online');
+                setConnStatus('online', 'Firebase tayari');
                 return users;
             }
             setConnStatus('online', 'Users ni tupu');
@@ -1124,7 +1193,7 @@
                 const db = getDB();
                 db.products = products;
                 saveDB(db);
-                setConnStatus('online');
+                setConnStatus('online', 'Firebase tayari');
                 return products;
             }
             setConnStatus('online', 'Products ni tupu');
@@ -1195,14 +1264,6 @@
                 phone: '712000001'
             });
 
-            await firestore.collection('users').doc('dealer1').set({
-                email: 'dealer@example.com',
-                password: 'dealer123',
-                fullName: 'Mabati Zone - Muuzaji',
-                role: 'dealer',
-                phone: '712345678'
-            });
-
             await firestore.collection('products').doc('p1').set({
                 title: 'Mabati Gofu 30 Gauge - Alaf',
                 category: 'Migongo Midogo (Corrugated)',
@@ -1219,7 +1280,7 @@
                     'https://picsum.photos/seed/mabati1/800/600',
                     'https://picsum.photos/seed/mabati2/800/600'
                 ],
-                dealerId: 'dealer1',
+                dealerId: ADMIN_DOC_ID,
                 createdAt: Date.now(),
                 featured: true,
                 sold: false
@@ -1257,7 +1318,6 @@
     }
 
     let currentUser = null;
-    let selectedRole = 'admin';
     let currentPage = 'dashboard';
     let catFilterList = [];
 
@@ -1311,136 +1371,37 @@
         renderListings();
     }
 
-    function setRole(role) {
-        selectedRole = role;
-        document.querySelectorAll('.role-toggle .btn').forEach(b => b.classList.toggle('active', b.dataset.role === role));
-
-        const usernameInput = document.getElementById('loginUsername');
-        const passwordInput = document.getElementById('loginPassword');
-        const loginLabel = document.getElementById('loginLabel');
-        const buyerHint = document.getElementById('buyerHint');
-        const fieldsWrapper = document.getElementById('loginFieldsWrapper');
-        const pwdWrapper = document.getElementById('passwordWrapper');
-
-        if (role === 'buyer') {
-            fieldsWrapper.style.display = 'none';
-            pwdWrapper.style.display = 'none';
-            buyerHint.style.display = 'block';
-            usernameInput.removeAttribute('required');
-            passwordInput.removeAttribute('required');
-            usernameInput.value = '';
-            passwordInput.value = '';
-        } else {
-            fieldsWrapper.style.display = 'block';
-            pwdWrapper.style.display = 'block';
-            buyerHint.style.display = 'none';
-            usernameInput.setAttribute('required', 'required');
-            passwordInput.setAttribute('required', 'required');
-            loginLabel.textContent = 'Barua pepe';
-            usernameInput.placeholder = 'Weka barua pepe';
-            passwordInput.placeholder = 'Weka neno siri';
-            usernameInput.value = '';
-            passwordInput.value = '';
-        }
-    }
-
+    /* ═══════════════════════════════════════════════════
+       LOGIN (MTEJA PEKE YAKE)
+       ═══════════════════════════════════════════════════ */
     async function handleLogin(e) {
-        e.preventDefault();
+        if (e) e.preventDefault();
         const btn = document.getElementById('loginBtn');
         btn.disabled = true;
         btn.innerHTML = '<span class="spinner-border spinner-border-sm me-2"></span>Inaingia...';
 
-        if (selectedRole === 'buyer') {
-            currentUser = {
-                uid: 'buyer_guest',
-                email: 'mteja@guest.com',
-                fullName: 'Mteja (Guest)',
-                role: 'buyer',
-                phone: ''
-            };
-            setConnStatus('syncing', 'Inapakua bidhaa...');
-            await loadProductsFromFirestore();
-            showApp();
-            btn.disabled = false;
-            btn.innerHTML = '🔐 Ingia';
-            return false;
-        }
-
-        const username = document.getElementById('loginUsername').value.trim();
-        const password = document.getElementById('loginPassword').value.trim();
-
-        setConnStatus('syncing', 'Inathibitisha...');
-
-        let user = null;
-
-        try {
-            const adminSnap = await firestore.collection('users').doc(ADMIN_DOC_ID).get({ source: 'server' });
-            if (adminSnap.exists) {
-                const adminData = adminSnap.data();
-                if (adminData.email === username && adminData.password === password) {
-                    user = { uid: ADMIN_DOC_ID, ...adminData };
-                }
-            }
-        } catch (err) {
-            console.warn('Direct read failed:', err.message);
-        }
-
-        if (!user) {
-            try {
-                const snap = await firestore.collection('users').where('email', '==', username).get({ source: 'server' });
-                if (!snap.empty) {
-                    const doc = snap.docs[0];
-                    const data = doc.data();
-                    if (data.password === password) {
-                        user = { uid: doc.id, ...data };
-                    }
-                }
-            } catch (err) {
-                console.warn('Query failed:', err.message);
-            }
-        }
-
-        if (!user) {
-            const db = getDB();
-            user = db.users.find(u => u.email === username && u.password === password);
-        }
-
-        if (!user) {
-            alert('❌ Barua pepe au neno siri si sahihi.');
-            setConnStatus('offline', 'Kuingia kimeshindikana');
-            btn.disabled = false;
-            btn.innerHTML = '🔐 Ingia';
-            return false;
-        }
-
-        if (selectedRole === 'admin' && user.role !== 'admin') {
-            alert('❌ Mtumiaji huyu si Admin. Role: ' + user.role);
-            btn.disabled = false;
-            btn.innerHTML = '🔐 Ingia';
-            return false;
-        }
-        if (selectedRole === 'dealer' && user.role !== 'dealer') {
-            alert('❌ Mtumiaji huyu si Muuzaji. Role: ' + user.role);
-            btn.disabled = false;
-            btn.innerHTML = '🔐 Ingia';
-            return false;
-        }
-
-        currentUser = user;
+        currentUser = {
+            uid: 'buyer_guest_' + Date.now(),
+            email: 'mteja@guest.com',
+            fullName: 'Mteja (Guest)',
+            role: 'buyer',
+            phone: ''
+        };
+        setConnStatus('syncing', 'Inapakua bidhaa...');
         await loadProductsFromFirestore();
         showApp();
         btn.disabled = false;
-        btn.innerHTML = '🔐 Ingia';
+        btn.innerHTML = '<i class="bi bi-box-arrow-in-right me-1"></i> Ingia kama Mteja';
         return false;
     }
 
     function handleLogout() {
+        if (!confirm('Toka?')) return;
         currentUser = null;
         document.getElementById('loginPage').style.display = 'flex';
         document.getElementById('mainContent').style.display = 'none';
         document.getElementById('sidebar').classList.remove('open');
         document.getElementById('sidebarOverlay').classList.remove('active');
-        setRole('admin');
     }
 
     function showApp() {
@@ -1448,22 +1409,28 @@
         document.getElementById('mainContent').style.display = 'block';
 
         const isAdmin = currentUser.role === 'admin';
-        const isDealer = currentUser.role === 'dealer';
-        const label = isAdmin ? 'Admin' : (isDealer ? 'Muuzaji' : 'Mteja');
+        const label = isAdmin ? 'Admin' : 'Mteja';
 
         document.getElementById('userRoleBadge').textContent = label;
-        document.getElementById('userAvatar').textContent = isAdmin ? 'A' : (isDealer ? 'M' : 'T');
+        document.getElementById('userAvatar').textContent = isAdmin ? 'A' : 'T';
         document.getElementById('dashboardUserName').textContent = currentUser.fullName || label;
         document.getElementById('sidebarRoleLabel').textContent = 'TZ • ' + label;
 
-        document.querySelectorAll('.sidebar .nav-link[data-page="admin"]').forEach(el => {
+        // Onyesha/ficha menu za admin
+        document.querySelectorAll('.admin-only').forEach(el => {
             el.style.display = isAdmin ? 'flex' : 'none';
         });
-        document.querySelectorAll('.sidebar .nav-link[data-page="mycars"], .sidebar .nav-link[data-page="addcar"]').forEach(el => {
-            el.style.display = (isAdmin || isDealer) ? 'flex' : 'none';
-        });
+        const adminNavLabel = document.getElementById('adminNavLabel');
+        if (adminNavLabel) adminNavLabel.style.display = isAdmin ? 'block' : 'none';
 
-        const changePwdBtn = document.querySelector('.change-pwd-btn');
+        // Kitufe cha Admin (kinaonekana kwa MTEJA tu)
+        const adminEntryBtn = document.getElementById('adminEntryBtn');
+        const adminBadge = document.getElementById('adminBadge');
+        if (adminEntryBtn) adminEntryBtn.style.display = isAdmin ? 'none' : 'inline-flex';
+        if (adminBadge) adminBadge.style.display = isAdmin ? 'inline-flex' : 'none';
+
+        // Kitufe cha kubadilisha neno la siri (Admin pekee)
+        const changePwdBtn = document.getElementById('changePwdBtn');
         if (changePwdBtn) changePwdBtn.style.display = isAdmin ? 'inline-block' : 'none';
 
         updateRoofTypeSelection();
@@ -1512,6 +1479,108 @@
         document.getElementById('sidebarOverlay').classList.remove('active');
     }
 
+    /* ═══════════════════════════════════════════════════
+       ADMIN LOGIN KUTOKA NDANI (kitufe kwenye header)
+       ═══════════════════════════════════════════════════ */
+    function openAdminLoginModal() {
+        if (!currentUser) return;
+        if (currentUser.role === 'admin') {
+            navigate('admin');
+            return;
+        }
+        document.getElementById('adminEmailInput').value = '';
+        document.getElementById('adminPasswordInput').value = '';
+        document.getElementById('adminLoginAlert').style.display = 'none';
+        new bootstrap.Modal(document.getElementById('adminLoginModal')).show();
+        setTimeout(() => document.getElementById('adminEmailInput').focus(), 400);
+    }
+
+    function showAdminLoginAlert(msg) {
+        const el = document.getElementById('adminLoginAlert');
+        el.style.display = 'block';
+        el.style.background = '#fef2f2';
+        el.style.border = '1px solid #fecaca';
+        el.style.color = '#991b1b';
+        el.innerHTML = msg;
+    }
+
+    async function doAdminLoginFromApp() {
+        const email = document.getElementById('adminEmailInput').value.trim().toLowerCase();
+        const password = document.getElementById('adminPasswordInput').value.trim();
+        document.getElementById('adminLoginAlert').style.display = 'none';
+
+        if (!email || !password) {
+            showAdminLoginAlert('Weka barua pepe na neno la siri.');
+            return;
+        }
+
+        const btn = document.getElementById('adminLoginSubmitBtn');
+        const old = btn.innerHTML;
+        btn.disabled = true;
+        btn.innerHTML = '<span class="spinner-border spinner-border-sm me-2"></span>Inaingia...';
+
+        setConnStatus('syncing', 'Inathibitisha...');
+
+        try {
+            let adminUser = null;
+
+            // Jaribu Admin Doc ID kwanza
+            try {
+                const adminSnap = await firestore.collection('users').doc(ADMIN_DOC_ID).get({ source: 'server' });
+                if (adminSnap.exists) {
+                    const adminData = adminSnap.data();
+                    if (adminData.email === email && adminData.password === password && adminData.role === 'admin') {
+                        adminUser = { uid: ADMIN_DOC_ID, ...adminData };
+                    }
+                }
+            } catch (e) { console.warn('Admin doc read:', e.message); }
+
+            // Fallback: query kwa email
+            if (!adminUser) {
+                try {
+                    const snap = await firestore.collection('users').where('email', '==', email).get({ source: 'server' });
+                    if (!snap.empty) {
+                        const doc = snap.docs[0];
+                        const data = doc.data();
+                        if (data.password === password && data.role === 'admin') {
+                            adminUser = { uid: doc.id, ...data };
+                        }
+                    }
+                } catch (e) { console.warn('Query:', e.message); }
+            }
+
+            // Fallback: local cache
+            if (!adminUser) {
+                const db = getDB();
+                adminUser = db.users.find(u => u.email === email && u.password === password && u.role === 'admin');
+            }
+
+            if (!adminUser) {
+                showAdminLoginAlert('❌ Barua pepe au neno la siri si sahihi, au mtumiaji huyu si Admin.');
+                setConnStatus('offline', 'Kuingia kimeshindikana');
+                btn.disabled = false;
+                btn.innerHTML = old;
+                return;
+            }
+
+            // Mafanikio!
+            currentUser = adminUser;
+            await loadProductsFromFirestore();
+
+            bootstrap.Modal.getInstance(document.getElementById('adminLoginModal')).hide();
+            showApp();
+            setConnStatus('online', 'Firebase tayari');
+
+        } catch (err) {
+            console.error(err);
+            showAdminLoginAlert('❌ Tatizo: ' + err.message);
+            setConnStatus('offline', 'Kuingia kimeshindikana');
+        }
+
+        btn.disabled = false;
+        btn.innerHTML = old;
+    }
+
     function renderDashboard() {
         const db = getDB();
         const products = db.products || [];
@@ -1524,7 +1593,7 @@
         document.getElementById('statFeatured').textContent = featured.length;
         document.getElementById('statValue').textContent = formatCurrency(totalValue);
 
-        const hideStats = currentUser && (currentUser.role === 'dealer' || currentUser.role === 'buyer');
+        const hideStats = currentUser && currentUser.role !== 'admin';
         document.getElementById('stat-col-users').style.display = hideStats ? 'none' : '';
         document.getElementById('stat-col-featured').style.display = hideStats ? 'none' : '';
         document.getElementById('stat-col-value').style.display = hideStats ? 'none' : '';
@@ -1801,6 +1870,7 @@
         }
 
         const dealer = db.users.find(u => u.uid === p.dealerId);
+        const sellerName = dealer ? (dealer.fullName || 'Mabati Zone Tanzania') : 'Mabati Zone Tanzania';
 
         document.getElementById('carDetailBody').innerHTML = `
             <div class="p-3">
@@ -1816,7 +1886,7 @@
                         <div class="col-6 col-md-4"><strong>Hali:</strong> ${p.condition || 'mpya'}</div>
                         <div class="col-6 col-md-4"><strong>Mkoa:</strong> ${p.region || 'TZ'}</div>
                         <div class="col-12"><strong>Maelezo:</strong> ${p.description || 'Hakuna maelezo.'}</div>
-                        <div class="col-12"><strong>Muuzaji:</strong> ${dealer ? (dealer.fullName || 'Muuzaji') : 'Unknown'}</div>
+                        <div class="col-12"><strong>Muuzaji:</strong> ${sellerName}</div>
                         <div class="col-12">
                             <span class="badge ${p.featured ? 'bg-warning' : 'bg-secondary'}">${p.featured ? '⭐ Featured' : 'Normal'}</span>
                             <span class="badge ${p.sold ? 'bg-danger' : 'bg-success'}">${p.sold ? 'IMEUZWA' : 'INAPATIKANA'}</span>
@@ -2001,38 +2071,52 @@
 
     function renderAdmin() {
         if (!currentUser || currentUser.role !== 'admin') {
-            document.getElementById('adminUsersTable').innerHTML = '<tr><td colspan="4" class="text-muted">Hakuna ruhusa.</td></tr>';
-            document.getElementById('adminListingsTable').innerHTML = '<tr><td colspan="4" class="text-muted">Hakuna ruhusa.</td></tr>';
+            document.getElementById('adminUsersList').innerHTML = '<div class="text-muted text-center py-3">Hakuna ruhusa.</div>';
+            document.getElementById('adminListingsList').innerHTML = '<div class="text-muted text-center py-3">Hakuna ruhusa.</div>';
             return;
         }
         const db = getDB();
         const users = db.users || [];
+        const products = db.products || [];
 
         document.getElementById('adminUserCount').textContent = users.length;
-        document.getElementById('adminProductCount').textContent = (db.products || []).length;
+        document.getElementById('adminProductCount').textContent = products.length;
 
-        document.getElementById('adminUsersTable').innerHTML = users.map(u => `
-            <tr>
-                <td>${u.fullName || 'Mtumiaji'} ${u.uid === ADMIN_DOC_ID ? '<span class="badge bg-warning text-dark ms-1">ADMIN</span>' : ''}</td>
-                <td>${u.email}</td>
-                <td><span class="badge bg-soft-primary text-primary-custom">${u.role || 'buyer'}</span></td>
-                <td><button class="btn btn-sm btn-outline-danger" onclick="deleteUser('${u.uid}')">🗑️</button></td>
-            </tr>
+        document.getElementById('adminUsersList').innerHTML = users.map(u => `
+            <div class="admin-user-card">
+                <div class="d-flex align-items-center gap-3">
+                    <div class="avatar-circle">
+                        ${(u.fullName || 'U').charAt(0).toUpperCase()}
+                    </div>
+                    <div>
+                        <div class="fw-bold">${u.fullName || 'Mtumiaji'} ${u.uid === ADMIN_DOC_ID ? '<span class="badge bg-warning text-dark ms-1" style="font-size:10px;">ADMIN</span>' : ''}</div>
+                        <div class="small text-muted">${u.email}</div>
+                        <span class="badge bg-secondary text-capitalize" style="font-size:10px;">${u.role || 'buyer'}</span>
+                    </div>
+                </div>
+                <button class="btn btn-sm btn-outline-danger" onclick="deleteUser('${u.uid}')"><i class="bi bi-trash"></i></button>
+            </div>
         `).join('');
 
-        const products = db.products || [];
-        document.getElementById('adminListingsTable').innerHTML = products.map(p => {
+        document.getElementById('adminListingsList').innerHTML = products.map(p => {
             const dealer = users.find(u => u.uid === p.dealerId);
+            const firstImg = (p.images && p.images.length > 0) ? p.images[0] : '';
+            const imgHtml = firstImg ? `<img src="${firstImg}" alt="${p.title}" />` : '<i class="bi bi-image text-muted fs-4"></i>';
             return `
-                <tr>
-                    <td>${p.title}</td>
-                    <td>${formatCurrency(p.price)}</td>
-                    <td>${dealer ? (dealer.fullName || 'Muuzaji') : 'Unknown'}</td>
-                    <td>
-                        <button class="btn btn-sm btn-outline-warning" onclick="toggleFeatured('${p.id}')">${p.featured ? '⭐' : '☆'}</button>
-                        <button class="btn btn-sm btn-outline-danger" onclick="deleteProduct('${p.id}')">🗑️</button>
-                    </td>
-                </tr>
+                <div class="admin-product-row">
+                    <div class="prod-img">
+                        ${imgHtml}
+                    </div>
+                    <div class="flex-grow-1">
+                        <div class="fw-bold text-truncate" style="max-width: 200px;">${p.title}</div>
+                        <div class="text-primary fw-bold small">${formatCurrency(p.price)}</div>
+                        <div class="text-muted small"><i class="bi bi-person"></i> ${dealer ? dealer.fullName : 'Mabati Zone'}</div>
+                    </div>
+                    <div class="d-flex flex-column gap-1 ms-2">
+                        <button class="btn btn-sm btn-outline-warning py-0 px-2" onclick="toggleFeatured('${p.id}')" title="Featured">${p.featured ? '⭐' : '☆'}</button>
+                        <button class="btn btn-sm btn-outline-danger py-0 px-2" onclick="deleteProduct('${p.id}')" title="Futa"><i class="bi bi-trash"></i></button>
+                    </div>
+                </div>
             `;
         }).join('');
     }
@@ -2093,7 +2177,6 @@
     // ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
     document.getElementById('loginPage').style.display = 'flex';
     document.getElementById('mainContent').style.display = 'none';
-    setRole('admin');
     updateRoofTypeSelection();
     setConnStatus('syncing', 'Inaunganisha na Firestore...');
 
@@ -2101,9 +2184,9 @@
         try {
             const adminDoc = await firestore.collection('users').doc(ADMIN_DOC_ID).get({ source: 'server' });
             if (adminDoc.exists) {
-                setConnStatus('online', 'Firestore iko tayari');
+                setConnStatus('online', 'Firebase tayari');
             } else {
-                setConnStatus('online', 'Firestore iko tayari (tupu)');
+                setConnStatus('online', 'Firebase tayari (tupu)');
             }
         } catch (e) {
             setConnStatus('offline', 'Firestore haipatikani');
@@ -2111,11 +2194,7 @@
     })();
 
     console.log('🏠 Mabati Zone Tanzania — "Ubora wa kuaminika zaidi" umeanza!');
-    console.log('✅ Viwanda 12 vimewekwa kwenye dropdowns zote.');
-    console.log('✅ Kiwanda kipya "Kiboko" kimeongezwa.');
-    console.log('✅ Sehemu ya "Mafundi Wetu" imeongezwa kwa mikoa 7.');
-    console.log('✅ Offer Zetu zimeongezwa kwenye Dashibodi na Mawasiliano.');
-    console.log('✅ Kiwanda kipya "Bomaxon Manufacturing company limited" kimeongezwa.');
+    console.log('✅ Mteja anaingia moja kwa moja — Admin kupitia kitufe kilicho ndani.');
     </script>
 
 </body>
